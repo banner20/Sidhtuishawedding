@@ -6,7 +6,7 @@
 
 .faq-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .faq-header .subtitle {
@@ -37,7 +37,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 2rem 0;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -22,9 +22,11 @@ const AboutUs = () => {
             </div>
             <div className="story-image">
               <div className="polaroid">
-                <div className="placeholder-img" style={{height: '300px', width: '250px'}}>
-                  [First Date Photo]
-                </div>
+                <img 
+                  src="/images/About us/date.jpg" 
+                  alt="First Date Photo" 
+                  style={{height: '300px', width: '250px', objectFit: 'cover', transform: 'scaleY(-1)'}} 
+                />
               </div>
             </div>
           </div>
@@ -33,9 +35,11 @@ const AboutUs = () => {
           <div className="story-journey">
             <div className="journey-image">
               <div className="polaroid">
-                <div className="placeholder-img" style={{height: '280px', width: '220px'}}>
-                  [Travel Photo]
-                </div>
+                <img 
+                  src="/images/About us/travel.jpg" 
+                  alt="Travel Photo" 
+                  style={{height: '280px', width: '220px', objectFit: 'cover'}} 
+                />
               </div>
               <div className="decoration-small">
                 <img 
@@ -77,9 +81,11 @@ const AboutUs = () => {
               <div className="background-images">
                 <div className="sidh-section">
                   <div className="polaroid small">
-                    <div className="placeholder-img" style={{height: '200px', width: '160px'}}>
-                      [Sidh's World]
-                    </div>
+                    <img 
+                      src="/images/About us/sidh.jpg" 
+                      alt="Sidh's World" 
+                      style={{height: '200px', width: '160px', objectFit: 'cover'}} 
+                    />
                   </div>
                   <div className="background-description">
                     <p>
@@ -92,9 +98,11 @@ const AboutUs = () => {
                 
                 <div className="tuisha-section">
                   <div className="polaroid small">
-                    <div className="placeholder-img" style={{height: '200px', width: '160px'}}>
-                      [Tuisha's World]
-                    </div>
+                    <img 
+                      src="/images/About us/tuisha.jpg" 
+                      alt="Tuisha's World" 
+                      style={{height: '200px', width: '160px', objectFit: 'cover'}} 
+                    />
                   </div>
                   <div className="background-description">
                     <p>
@@ -112,9 +120,11 @@ const AboutUs = () => {
           <div className="story-together">
             <div className="together-image">
               <div className="polaroid large">
-                <div className="placeholder-img" style={{height: '350px', width: '280px'}}>
-                  [Couple Together]
-                </div>
+                <img 
+                  src="/images/About us/coupletogether.jpg" 
+                  alt="Couple Together" 
+                  style={{height: '350px', width: '280px', objectFit: 'cover'}} 
+                />
               </div>
             </div>
             <div className="together-text">

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&family=Montaga&display=swap');
+
+@import url('./styles/animations.css');
 
 /* Custom Fonts */
 @font-face {
@@ -55,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   text-align: center;
   color: var(--text-dark);
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .subtitle {
@@ -72,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'WarblerBanner', 'Playfair Display', serif;
   font-size: 2.5rem;
   text-align: center;
-  margin: 3rem 0 2rem;
+  margin: 1.5rem 0 1rem;
   color: var(--text-dark);
 }
 
@@ -95,6 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn:hover {
@@ -171,6 +175,7 @@ h1, h2, h3, h4, h5, h6 {
   
   .section-title {
     font-size: 2rem;
+    margin: 1rem 0 0.5rem;
   }
   
   .container {

@@ -60,7 +60,7 @@ const RSVP = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-large">Submit RSVP</button>
+            <button type="submit" className="btn btn-large">SUBMIT RSVP</button>
           </form>
         </div>
       </div>

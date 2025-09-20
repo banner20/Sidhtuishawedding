@@ -1,42 +1,279 @@
 .cards,
 .wardrobe {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--cream);
   min-height: calc(100vh - 200px);
 }
 
 .page-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .page-header .subtitle {
   margin-top: 1rem;
 }
 
-.content-placeholder {
-  max-width: 800px;
+/* Cards Gallery Layout */
+.cards-gallery {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card-item:hover {
+  transform: rotate(0deg) !important;
+}
+
+.card-image-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-image-container:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  max-width: 280px;
+  height: 400px;
+  object-fit: cover;
+  border: 12px solid #fff;
+  border-radius: 4px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-image:hover {
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.card-info {
+  max-width: 280px;
+}
+
+.card-title {
+  font-family: 'WarblerBanner', 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.card-description {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Cards Note */
+.cards-note {
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  padding: 2rem 0;
+  border-top: 2px solid var(--primary-color);
 }
 
-.placeholder-text {
-  font-family: 'Lato', sans-serif;
+.cards-note p {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--text-light);
-  margin-top: 2rem;
-  padding: 0 2rem;
+  color: var(--text-dark);
+  font-style: italic;
+  margin: 0;
 }
 
+/* Overlay Styles */
+.card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.overlay-content {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.close-button:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.overlay-image-container {
+  margin-bottom: 1.5rem;
+}
+
+.overlay-image {
+  max-width: 60vw;
+  max-height: 70vh;
+  object-fit: contain;
+  border: 12px solid #fff;
+  border-radius: 4px;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.overlay-info {
+  text-align: center;
+  max-width: 500px;
+}
+
+.overlay-title {
+  font-family: 'WarblerBanner', 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.overlay-description {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .cards,
   .wardrobe {
     padding: 2rem 0;
   }
   
-  .placeholder-text {
-    font-size: 1rem;
+  .cards-gallery {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     padding: 0 1rem;
+  }
+  
+  .card-item {
+    padding: 1.5rem 0;
+  }
+  
+  .card-image {
+    max-width: 240px;
+    height: 340px;
+    border-width: 8px;
+  }
+  
+  .card-title {
+    font-size: 1.4rem;
+  }
+  
+  .card-description {
+    font-size: 0.95rem;
+  }
+  
+  .cards-note {
+    padding: 1.5rem 1rem;
+  }
+  
+  .cards-note p {
+    font-size: 1rem;
+  }
+
+  /* Overlay responsive */
+  .overlay-content {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .overlay-image {
+    max-width: 80vw;
+    max-height: 60vh;
+    border-width: 8px;
+  }
+
+  .overlay-title {
+    font-size: 1.6rem;
+  }
+
+  .overlay-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-image {
+    max-width: 200px;
+    height: 280px;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
   }
 }

@@ -4,7 +4,7 @@
 
 .hero {
   text-align: center;
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--cream);
 }
 
@@ -43,7 +43,7 @@
 }
 
 .about-preview {
-  padding: 4rem 0;
+  padding: 2rem 0;
   background: var(--white);
 }
 
@@ -74,7 +74,7 @@
 }
 
 .venue {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--warm-gray);
 }
 
@@ -140,7 +140,7 @@
 }
 
 .rsvp-preview {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--white);
   text-align: center;
 }

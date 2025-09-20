@@ -6,7 +6,7 @@
 
 .page-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .about-content {
@@ -20,8 +20,8 @@
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 5rem;
-  padding: 3rem 0;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -38,8 +38,8 @@
   grid-template-columns: 1fr 2fr;
   gap: 4rem;
   align-items: flex-start;
-  margin-bottom: 5rem;
-  padding: 3rem 0;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -69,8 +69,8 @@
 
 /* Background Section */
 .story-backgrounds {
-  margin-bottom: 5rem;
-  padding: 4rem 0;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -79,7 +79,7 @@
   font-size: 2rem;
   color: var(--text-dark);
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .background-text {
@@ -131,7 +131,7 @@
   grid-template-columns: 1fr 2fr;
   gap: 4rem;
   align-items: center;
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .together-image {

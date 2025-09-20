@@ -6,9 +6,9 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
-          <p className="subtitle">TOGETHER WITH THEIR FAMILIES THE OBEROI'S & TRISHA'S INVITE YOU TO CELEBRATE</p>
-          <h1 className="hero-title">Sidh & Tuisha</h1>
-          <div className="wedding-details">
+          <p className="subtitle animate-hero animate-fade-in-down">TOGETHER WITH THEIR FAMILIES THE OBEROI'S & TRISHA'S INVITE YOU TO CELEBRATE</p>
+          <h1 className="hero-title animate-hero animate-fade-in-up">Sidh & Tuisha</h1>
+          <div className="wedding-details animate-hero animate-fade-in-up">
             <p className="wedding-date">February 18-19, 2025</p>
             <p className="wedding-location">Tijara Fort Palace • Rajasthan, India</p>
           </div>
@@ -34,10 +34,10 @@ const Home = () => {
                 We met as many do in this modern age, through Hinge. What started as a classic getting to know each other situation 
                 has blossomed into a beautiful journey of love, travel, and shared adventures across 10+ countries.
               </p>
-              <a href="/about" className="btn">Read Our Full Story</a>
+              <a href="/about" className="btn animate-button">READ OUR FULL STORY</a>
             </div>
             <div className="story-image">
-              <div className="polaroid">
+              <div className="polaroid animate-polaroid">
                 <img 
                   src="/images/About us/coupleanimation.GIF" 
                   alt="Sidh & Tuisha" 
@@ -57,25 +57,25 @@ const Home = () => {
               <h3 className="venue-label">The Venue</h3>
               <h2 className="venue-name">Tijara Fort Palace</h2>
               <p className="venue-description">
-                Fuisset petentium epicuri risus blandit porci contend. Fuisset magna 
-                aliquam lacus hinc et amet. Eos accumsan purus enim suscipir 
-                quis ibum felis, fringilla vitius.
+                A magnificent 18th-century heritage fort palace nestled in the Aravalli Hills of Rajasthan. 
+                This stunning venue combines royal grandeur with modern luxury, offering breathtaking views, 
+                exquisite architecture, and an unforgettable backdrop for our special celebration.
               </p>
               <div className="venue-address">
-                <p>4/36 Peter Avenue</p>
-                <p>Joine Hills 65789</p>
+                <p>Village Tijara, Alwar District</p>
+                <p>Rajasthan 301411, India</p>
               </div>
             </div>
             <div className="venue-images">
               <div className="venue-image-stack">
-                <div className="polaroid">
+                <div className="polaroid animate-polaroid">
                   <img 
                     src="/images/tijarafort.png" 
                     alt="Tijara Fort Palace" 
                     style={{height: '250px', width: '350px', objectFit: 'cover'}} 
                   />
                 </div>
-                <div className="venue-decoration">
+                <div className="venue-decoration animate-float">
                   <img 
                     src="/images/decoration.png" 
                     alt="Decorative Element" 
@@ -97,7 +97,7 @@ const Home = () => {
               We can't wait to celebrate with you! Please let us know if you'll be joining us 
               for our special day. Your presence would mean the world to us.
             </p>
-            <a href="/rsvp" className="btn">RSVP Now</a>
+            <a href="/rsvp" className="btn animate-button">RSVP NOW</a>
           </div>
         </div>
       </section>

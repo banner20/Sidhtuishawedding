@@ -89,9 +89,9 @@ const TravelRecommendations = () => {
   };
 
   const days = [
-    { key: 'day1', label: 'Day 1' },
-    { key: 'day2', label: 'Day 2' },
-    { key: 'day3', label: 'Day 3' }
+    { key: 'day1', label: 'DAY 1' },
+    { key: 'day2', label: 'DAY 2' },
+    { key: 'day3', label: 'DAY 3' }
   ];
 
   const gurgaonItinerary = {
@@ -141,16 +141,16 @@ const TravelRecommendations = () => {
           {/* City Switcher */}
           <div className="city-switcher">
             <button 
-              className={`city-btn ${activeCity === 'delhi' ? 'active' : ''}`}
+              className={`city-btn animate-button ${activeCity === 'delhi' ? 'active' : ''}`}
               onClick={() => setActiveCity('delhi')}
             >
-              Delhi
+              DELHI
             </button>
             <button 
-              className={`city-btn ${activeCity === 'jaipur' ? 'active' : ''}`}
+              className={`city-btn animate-button ${activeCity === 'jaipur' ? 'active' : ''}`}
               onClick={() => setActiveCity('jaipur')}
             >
-              Jaipur
+              JAIPUR
             </button>
           </div>
         </div>
@@ -161,11 +161,11 @@ const TravelRecommendations = () => {
               {/* Historical & Architectural Highlights */}
               <section className="travel-section">
                 <div 
-                  className="section-header" 
+                  className="section-header animate-hover-glow" 
                   onClick={() => toggleSection('delhi-historical')}
                 >
                   <h2 className="travel-section-title">Historical & Architectural Highlights</h2>
-                  <span className="toggle-icon">{openSections['delhi-historical'] ? '−' : '+'}</span>
+                  <span className={`toggle-icon ${openSections['delhi-historical'] ? 'open' : ''}`}>{openSections['delhi-historical'] ? '−' : '+'}</span>
                 </div>
                 
                 {openSections['delhi-historical'] && (
@@ -410,94 +410,126 @@ const TravelRecommendations = () => {
 
               {/* Getting Around */}
               <section className="travel-section">
-                <h2 className="travel-section-title">Getting Around</h2>
-                
-                <div className="attraction">
-                  <h3>Auto-rickshaws & Ubers</h3>
-                  <p>Great for short rides; always confirm fares or use ride-hailing apps before-hand.</p>
+                <div 
+                  className="section-header" 
+                  onClick={() => toggleSection('delhi-transport')}
+                >
+                  <h2 className="travel-section-title">Getting Around</h2>
+                  <span className="toggle-icon">{openSections['delhi-transport'] ? '−' : '+'}</span>
                 </div>
                 
-                <div className="attraction">
-                  <h3>Private Tours</h3>
-                  <p>Many Airbnb experiences available - A full-day guided rides covering Red Fort, Qutub Minar, Humayun's Tomb, India Gate, Rashtrapati Bhavan, etc., with pickup and convenience included.</p>
-                </div>
-                
-                <div className="attraction">
-                  <h3>Walks & Evenings</h3>
-                  <p>Areas like Lodhi Gardens, Sunder Nursery and Hauz Khas Lake and Deer Park are especially lovely for evening promenades.</p>
-                </div>
+                {openSections['delhi-transport'] && (
+                  <div className="section-content">
+                    <div className="attraction">
+                      <h3>Auto-rickshaws & Ubers</h3>
+                      <p>Great for short rides; always confirm fares or use ride-hailing apps before-hand.</p>
+                    </div>
+                    
+                    <div className="attraction">
+                      <h3>Private Tours</h3>
+                      <p>Many Airbnb experiences available - A full-day guided rides covering Red Fort, Qutub Minar, Humayun's Tomb, India Gate, Rashtrapati Bhavan, etc., with pickup and convenience included.</p>
+                    </div>
+                    
+                    <div className="attraction">
+                      <h3>Walks & Evenings</h3>
+                      <p>Areas like Lodhi Gardens, Sunder Nursery and Hauz Khas Lake and Deer Park are especially lovely for evening promenades.</p>
+                    </div>
+                  </div>
+                )}
               </section>
 
               {/* Recommended Hotels */}
               <section className="travel-section">
-                <h2 className="travel-section-title">Recommended Hotels</h2>
-                <div className="contact-info">
-                  <p>For hotel recommendations, please contact: <strong>sidharth.oberoi.22@gmail.com</strong></p>
+                <div 
+                  className="section-header" 
+                  onClick={() => toggleSection('delhi-hotels')}
+                >
+                  <h2 className="travel-section-title">Recommended Hotels</h2>
+                  <span className="toggle-icon">{openSections['delhi-hotels'] ? '−' : '+'}</span>
                 </div>
+                
+                {openSections['delhi-hotels'] && (
+                  <div className="section-content">
+                    <div className="contact-info">
+                      <p>For hotel recommendations, please contact: <strong>sidharth.oberoi.22@gmail.com</strong></p>
+                    </div>
+                  </div>
+                )}
               </section>
 
               {/* Delhi Travel Itinerary */}
               <section className="travel-section itinerary-section">
-                <h2 className="travel-section-title">Suggested Sample Itinerary (for 2-3 Days)</h2>
-                <p className="subtitle">Your guide to exploring Delhi in 2-3 days</p>
-                
-                {/* Day Tabs */}
-                <div className="day-tabs">
-                  {days.map(day => (
-                    <button 
-                      key={day.key}
-                      className={`day-tab ${activeDay === day.key ? 'active' : ''}`}
-                      onClick={() => setActiveDay(day.key)}
-                    >
-                      {day.label}
-                    </button>
-                  ))}
+                <div 
+                  className="section-header" 
+                  onClick={() => toggleSection('delhi-itinerary')}
+                >
+                  <h2 className="travel-section-title">Suggested Sample Itinerary (for 2-3 Days)</h2>
+                  <span className="toggle-icon">{openSections['delhi-itinerary'] ? '−' : '+'}</span>
                 </div>
                 
-                {/* Timeline Content */}
-                <div className="timeline-container">
-                  <div className="timeline-header">
-                    <h3 className="timeline-date">{itineraryData[activeDay].date}</h3>
-                    <p className="timeline-theme">{itineraryData[activeDay].theme}</p>
-                  </div>
-                  
-                  <div className="timeline">
-                    {itineraryData[activeDay].events.map((event, index) => (
-                      <div key={index} className="timeline-item">
-                        <div className="timeline-time">
-                          <span className="time">{event.time}</span>
-                          <span className="period">{event.period}</span>
-                        </div>
-                        <div className="timeline-content">
-                          <h4 className="event-title">{event.title}</h4>
-                          <p className="event-description">{event.description}</p>
-                        </div>
+                {openSections['delhi-itinerary'] && (
+                  <div className="section-content">
+                    <p className="subtitle">Your guide to exploring Delhi in 2-3 days</p>
+                    
+                    {/* Day Tabs */}
+                    <div className="day-tabs">
+                      {days.map(day => (
+                        <button 
+                          key={day.key}
+                          className={`day-tab animate-button ${activeDay === day.key ? 'active' : ''}`}
+                          onClick={() => setActiveDay(day.key)}
+                        >
+                          {day.label}
+                        </button>
+                      ))}
+                    </div>
+                    
+                    {/* Timeline Content */}
+                    <div className="timeline-container">
+                      <div className="timeline-header">
+                        <h3 className="timeline-date">{itineraryData[activeDay].date}</h3>
+                        <p className="timeline-theme">{itineraryData[activeDay].theme}</p>
                       </div>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* Gurgaon Alternative */}
-                <div className="alternative-itinerary">
-                  <h3 className="alternative-title">{gurgaonItinerary.title}</h3>
-                  <p className="alternative-subtitle">{gurgaonItinerary.subtitle}</p>
-                  <p className="alternative-description">{gurgaonItinerary.description}</p>
-                  
-                  <div className="alternative-sections">
-                    {gurgaonItinerary.sections.map((section, index) => (
-                      <div key={index} className="alternative-section">
-                        <h4 className="section-time">{section.time}</h4>
-                        <ul className="section-activities">
-                          {section.activities.map((activity, actIndex) => (
-                            <li key={actIndex}>{activity}</li>
-                          ))}
-                        </ul>
+                      
+                      <div className="timeline">
+                        {itineraryData[activeDay].events.map((event, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="timeline-time">
+                              <span className="time">{event.time}</span>
+                              <span className="period">{event.period}</span>
+                            </div>
+                            <div className="timeline-content animate-hover-lift">
+                              <h4 className="event-title">{event.title}</h4>
+                              <p className="event-description">{event.description}</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+                    
+                    {/* Gurgaon Alternative */}
+                    <div className="alternative-itinerary">
+                      <h3 className="alternative-title">{gurgaonItinerary.title}</h3>
+                      <p className="alternative-subtitle">{gurgaonItinerary.subtitle}</p>
+                      <p className="alternative-description">{gurgaonItinerary.description}</p>
+                      
+                      <div className="alternative-sections">
+                        {gurgaonItinerary.sections.map((section, index) => (
+                          <div key={index} className="alternative-section">
+                            <h4 className="section-time">{section.time}</h4>
+                            <ul className="section-activities">
+                              {section.activities.map((activity, actIndex) => (
+                                <li key={actIndex}>{activity}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
               </section>
-              </>
+            </>
           )}
           
           {activeCity === 'jaipur' && (
@@ -594,22 +626,41 @@ const TravelRecommendations = () => {
 
               {/* Getting Around Jaipur */}
               <section className="travel-section">
-                <h2 className="travel-section-title">Getting Around Jaipur</h2>
-                
-                <div className="attraction">
-                  <h3>Auto-rickshaws</h3>
-                  <p>Ubiquitous and affordable for short distances—some are electric, too.</p>
+                <div 
+                  className="section-header" 
+                  onClick={() => toggleSection('jaipur-transport')}
+                >
+                  <h2 className="travel-section-title">Getting Around Jaipur</h2>
+                  <span className="toggle-icon">{openSections['jaipur-transport'] ? '−' : '+'}</span>
                 </div>
                 
-                <div className="attraction">
-                  <h3>Uber</h3>
-                  <p>Uber is available and convenient—especially for longer trips or airport transfers.</p>
-                </div>
+                {openSections['jaipur-transport'] && (
+                  <div className="section-content">
+                    <div className="attraction">
+                      <h3>Auto-rickshaws</h3>
+                      <p>Ubiquitous and affordable for short distances—some are electric, too.</p>
+                    </div>
+                    
+                    <div className="attraction">
+                      <h3>Uber</h3>
+                      <p>Uber is available and convenient—especially for longer trips or airport transfers.</p>
+                    </div>
+                  </div>
+                )}
               </section>
 
               {/* Suggested Sample Itinerary */}
               <section className="travel-section">
-                <h2 className="travel-section-title">Suggested Sample Itinerary (2–3 Days)</h2>
+                <div 
+                  className="section-header" 
+                  onClick={() => toggleSection('jaipur-itinerary')}
+                >
+                  <h2 className="travel-section-title">Suggested Sample Itinerary (2–3 Days)</h2>
+                  <span className="toggle-icon">{openSections['jaipur-itinerary'] ? '−' : '+'}</span>
+                </div>
+                
+                {openSections['jaipur-itinerary'] && (
+                  <div className="section-content">
                 
                 <div className="itinerary-day">
                   <h3>Day 1: Royal Heritage & Iconic Landmarks</h3>
@@ -662,8 +713,10 @@ const TravelRecommendations = () => {
                     <p>Optional evening cocktails at <strong>Native Cocktail Room</strong> or <strong>Savannah</strong></p>
                   </div>
                 </div>
+                  </div>
+                )}
               </section>
-              </>
+            </>
           )}
         </div>
       </div>
