@@ -1,4 +1,5 @@
 .travel {
+.travel {
   padding: 3rem 0;
   background: var(--cream);
   min-height: calc(100vh - 200px);
@@ -151,7 +152,7 @@
 }
 
 .attraction p {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-dark);
@@ -166,7 +167,7 @@
 }
 
 .sub-attraction h4 {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   color: var(--secondary-color);
   margin-bottom: 0.5rem;
@@ -352,7 +353,7 @@
 }
 
 .timeline-theme {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.2rem;
   color: var(--secondary-color);
   font-style: italic;
@@ -418,7 +419,7 @@
 
 .period {
   display: block;
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 0.9rem;
   color: var(--secondary-color);
   text-transform: uppercase;
@@ -442,7 +443,7 @@
 }
 
 .event-description {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-dark);
@@ -466,7 +467,7 @@
 }
 
 .alternative-subtitle {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   color: var(--secondary-color);
   font-style: italic;
@@ -475,7 +476,7 @@
 }
 
 .alternative-description {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   color: var(--text-dark);
   text-align: center;
@@ -514,7 +515,7 @@
 }
 
 .section-activities li {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-dark);

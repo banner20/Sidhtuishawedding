@@ -17,14 +17,14 @@
 }
 
 .wedding-date {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.2rem;
   color: var(--primary-color);
   margin: 0;
 }
 
 .wedding-location {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   color: var(--text-light);
   margin: 0.5rem 0 0;
@@ -61,7 +61,7 @@
 }
 
 .about-preview-text {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-dark);
@@ -88,7 +88,7 @@
 }
 
 .venue-label {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   color: var(--primary-color);
   margin: 0 0 0.5rem;
@@ -104,7 +104,7 @@
 }
 
 .venue-description {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-dark);
@@ -112,7 +112,7 @@
 }
 
 .venue-address p {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 0.9rem;
   color: var(--text-light);
   margin: 0.25rem 0;
@@ -151,7 +151,7 @@
 }
 
 .rsvp-description {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-dark);

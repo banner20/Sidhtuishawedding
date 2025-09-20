@@ -26,7 +26,7 @@
 }
 
 .story-intro .story-text {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.2rem;
   line-height: 1.8;
   color: var(--text-dark);
@@ -57,7 +57,7 @@
 }
 
 .journey-text {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-dark);
@@ -72,6 +72,15 @@
   margin-bottom: 3rem;
   padding: 2rem 0;
   border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.background-decoration-left {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  transform: rotate(-20deg);
+  z-index: 1;
 }
 
 .background-content h3 {
@@ -88,7 +97,7 @@
 }
 
 .background-text p {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-dark);
@@ -118,7 +127,7 @@
 }
 
 .background-description p {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-dark);
@@ -132,6 +141,15 @@
   gap: 4rem;
   align-items: center;
   padding: 2rem 0;
+  position: relative;
+}
+
+.together-decoration-leaf {
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  transform: rotate(35deg);
+  z-index: 1;
 }
 
 .together-image {
@@ -144,7 +162,7 @@
 }
 
 .together-text {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-dark);
@@ -201,5 +219,11 @@
   .conclusion {
     font-size: 1.1rem;
     padding: 1.5rem;
+  }
+  
+  /* Hide decorations on mobile for cleaner look */
+  .background-decoration-left,
+  .together-decoration-leaf {
+    display: none;
   }
 }

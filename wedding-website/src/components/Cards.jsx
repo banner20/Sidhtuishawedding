@@ -38,6 +38,13 @@ const Cards = () => {
   return (
     <div className="cards">
       <div className="container">
+        <div className="cards-decoration-fan">
+          <img 
+            src="/images/decorationfan.png" 
+            alt="Decorative fan" 
+            style={{height: '130px', width: '130px', objectFit: 'contain'}} 
+          />
+        </div>
         <div className="page-header">
           <h1 className="section-title">Wedding Cards</h1>
           <p className="subtitle">Our beautiful wedding invitations and announcements</p>
@@ -68,6 +75,13 @@ const Cards = () => {
         </div>
         
         <div className="cards-note">
+          <div className="cards-decoration-leaf">
+            <img 
+              src="/images/decorationleaf.png" 
+              alt="Decorative leaf" 
+              style={{height: '85px', width: '85px', objectFit: 'contain'}} 
+            />
+          </div>
           <p>
             These cards represent the beginning of our journey together and the invitation 
             for our loved ones to celebrate this special milestone with us.

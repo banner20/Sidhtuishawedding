@@ -68,6 +68,13 @@ const AboutUs = () => {
 
           {/* Background Section with Side Images */}
           <div className="story-backgrounds">
+            <div className="background-decoration-left">
+              <img 
+                src="/images/decorationtulip.png" 
+                alt="Decorative tulip" 
+                style={{height: '90px', width: '90px', objectFit: 'contain'}} 
+              />
+            </div>
             <div className="background-content">
               <div className="background-text">
                 <h3>Our Different Worlds</h3>
@@ -118,6 +125,13 @@ const AboutUs = () => {
 
           {/* Together Section */}
           <div className="story-together">
+            <div className="together-decoration-leaf">
+              <img 
+                src="/images/decorationleaf.png" 
+                alt="Decorative leaf" 
+                style={{height: '110px', width: '110px', objectFit: 'contain'}} 
+              />
+            </div>
             <div className="together-image">
               <div className="polaroid large">
                 <img 

@@ -37,6 +37,13 @@ const Wardrobe = () => {
   return (
     <div className="wardrobe">
       <div className="container">
+        <div className="wardrobe-decoration-tulip">
+          <img 
+            src="/images/decorationtulip.png" 
+            alt="Decorative tulip" 
+            style={{height: '120px', width: '120px', objectFit: 'contain'}} 
+          />
+        </div>
         <div className="page-header">
           <h1 className="section-title">Wardrobe</h1>
           <p className="subtitle">Dress code and outfit suggestions for each event</p>
@@ -67,6 +74,13 @@ const Wardrobe = () => {
         </div>
         
         <div className="cards-note">
+          <div className="wardrobe-decoration-fan">
+            <img 
+              src="/images/decorationfan.png" 
+              alt="Decorative fan" 
+              style={{height: '100px', width: '100px', objectFit: 'contain'}} 
+            />
+          </div>
           <p>
             These outfit suggestions will help you choose the perfect attire for each celebration, 
             ensuring comfort and style throughout our special events.

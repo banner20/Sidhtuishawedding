@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import './TravelRecommendations.css';
+import { useState } from 'react';
 
 const TravelRecommendations = () => {
   const [activeCity, setActiveCity] = useState('delhi');

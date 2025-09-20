@@ -38,7 +38,7 @@
 }
 
 body {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--cream);
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .subtitle {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   font-weight: 400;
   color: var(--primary-color);
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--white);
   border: none;
   padding: 12px 30px;
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;

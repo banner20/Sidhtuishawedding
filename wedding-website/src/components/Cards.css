@@ -3,6 +3,23 @@
   padding: 3rem 0;
   background: var(--cream);
   min-height: calc(100vh - 200px);
+  position: relative;
+}
+
+.cards-decoration-fan {
+  position: absolute;
+  top: 30px;
+  right: 100px;
+  transform: rotate(15deg);
+  z-index: 1;
+}
+
+.wardrobe-decoration-tulip {
+  position: absolute;
+  top: 20px;
+  left: 80px;
+  transform: rotate(-18deg);
+  z-index: 1;
 }
 
 .page-header {
@@ -95,6 +112,23 @@
   text-align: center;
   padding: 2rem 0;
   border-top: 2px solid var(--primary-color);
+  position: relative;
+}
+
+.cards-decoration-leaf {
+  position: absolute;
+  top: -25px;
+  left: -50px;
+  transform: rotate(-25deg);
+  z-index: 1;
+}
+
+.wardrobe-decoration-fan {
+  position: absolute;
+  top: -20px;
+  right: -40px;
+  transform: rotate(30deg);
+  z-index: 1;
 }
 
 .cards-note p {
@@ -184,7 +218,7 @@
 }
 
 .overlay-description {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--text-dark);
@@ -264,6 +298,14 @@
 
   .overlay-description {
     font-size: 1rem;
+  }
+  
+  /* Hide decorations on mobile for cleaner look */
+  .cards-decoration-fan,
+  .cards-decoration-leaf,
+  .wardrobe-decoration-tulip,
+  .wardrobe-decoration-fan {
+    display: none;
   }
 }
 
