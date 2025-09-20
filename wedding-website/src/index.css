@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap');
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'WarblerBanner';
+  src: url('./assets/fonts/WarblerBanner-Regular-Testing-BF674fd38676e7d.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MrsEaves';
+  src: url('./assets/fonts/fonnts.com-Mrs-Eaves-Small-Caps-OT-.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary-color: #d4a574;
+  --secondary-color: #8b7355;
+  --text-dark: #4a4a4a;
+  --text-light: #8a8a8a;
+  --background-light: #f8f6f3;
+  --white: #ffffff;
+  --border-light: #e5e0d6;
+  --cream: #fefcf9;
+  --warm-gray: #f5f3f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--cream);
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'WarblerBanner', 'Playfair Display', serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.hero-title {
+  font-family: 'WarblerBanner', 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-dark);
+  margin: 1rem 0;
+}
+
+.subtitle {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--primary-color);
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: 'WarblerBanner', 'Playfair Display', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 3rem 0 2rem;
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.btn {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 12px 30px;
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  margin: 2rem 0;
+  border: 1px solid var(--border-light);
+}
+
+.placeholder-img {
+  background: #e0e0e0;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+/* Polaroid Image Styling */
+.polaroid {
+  background: #ffffff;
+  padding: 15px 15px 45px 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  margin: 1rem;
+  border: 1px solid #ddd;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.polaroid img,
+.polaroid .placeholder-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.polaroid .placeholder-img {
+  background: #f0f0f0;
+  color: #999;
+  min-height: 200px;
+}
+
+.polaroid-caption {
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: #333;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+}

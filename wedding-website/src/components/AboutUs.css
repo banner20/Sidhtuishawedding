@@ -1,0 +1,205 @@
+.about-us {
+  padding: 5rem 0;
+  background: var(--cream);
+  min-height: calc(100vh - 200px);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Story Introduction Section */
+.story-intro {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 5rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.story-intro .story-text {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+/* Journey Section */
+.story-journey {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: flex-start;
+  margin-bottom: 5rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.journey-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.decoration-small {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  transform: rotate(25deg);
+}
+
+.journey-text {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.journey-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* Background Section */
+.story-backgrounds {
+  margin-bottom: 5rem;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.background-content h3 {
+  font-family: 'WarblerBanner', 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.background-text {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.background-text p {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.background-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.sidh-section,
+.tuisha-section {
+  text-align: center;
+}
+
+.polaroid.small {
+  transform: rotate(-3deg);
+  margin-bottom: 2rem;
+}
+
+.sidh-section .polaroid.small {
+  transform: rotate(2deg);
+}
+
+.background-description p {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+/* Together Section */
+.story-together {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.together-image {
+  display: flex;
+  justify-content: center;
+}
+
+.polaroid.large {
+  transform: rotate(-1deg);
+}
+
+.together-text {
+  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.together-text p {
+  margin-bottom: 1.5rem;
+}
+
+.conclusion {
+  font-style: italic;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-us {
+    padding: 2rem 0;
+  }
+  
+  .about-content {
+    padding: 0 1rem;
+  }
+  
+  .story-intro,
+  .story-journey,
+  .story-together {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .background-images {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .story-intro .story-text,
+  .journey-text,
+  .together-text {
+    font-size: 1rem;
+  }
+  
+  .background-content h3 {
+    font-size: 1.8rem;
+  }
+  
+  .conclusion {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
+}

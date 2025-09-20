@@ -1,0 +1,164 @@
+.rsvp-page {
+  padding: 5rem 0;
+  background: var(--cream);
+  min-height: calc(100vh - 200px);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-header .subtitle {
+  margin-top: 1rem;
+}
+
+.rsvp-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 3.5rem;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-light);
+}
+
+.rsvp-form-full {
+  width: 100%;
+}
+
+.form-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2rem;
+}
+
+.form-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.form-group input[type=\"text\"],
+.form-group input[type=\"email\"],
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--border-light);
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  background: var(--white);
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type=\"text\"]:focus,
+.form-group input[type=\"email\"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.guest-options,
+.attendance-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.guest-options label,
+.attendance-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  border: 2px solid var(--border-light);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.guest-options label:hover,
+.attendance-options label:hover {
+  border-color: var(--primary-color);
+  background: rgba(212, 165, 116, 0.05);
+}
+
+.guest-options input,
+.attendance-options input {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.btn-large {
+  width: 100%;
+  padding: 1.25rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .rsvp-page {
+    padding: 2rem 0;
+  }
+  
+  .rsvp-form-container {
+    margin: 0 1rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .guest-options,
+  .attendance-options {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .form-section h3 {
+    font-size: 1.3rem;
+  }
+}
