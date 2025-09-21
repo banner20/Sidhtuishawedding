@@ -73,7 +73,7 @@ const Layout = ({ children }) => {
             <Link to="/rsvp" className="animate-hover-glow">RSVP</Link>
           </div>
           <p className="footer-text">
-            Powered by Webflow, built by Abel Hancock | Licensing
+            Built by Spectroxia Studios
           </p>
         </div>
       </footer>
