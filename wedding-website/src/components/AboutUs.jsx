@@ -15,7 +15,7 @@ const AboutUs = () => {
     { src: '/images/About us/IMG_2390.jpg', alt: 'Memory 3', rotation: 'rotate(3deg)' },
     { src: '/images/About us/IMG_8754.jpg', alt: 'Memory 4', rotation: 'rotate(-2deg)' },
     { src: '/images/About us/IMG_9088.jpg', alt: 'Memory 5', rotation: 'rotate(1deg)' },
-    { src: '/images/About us/IMG_9262.jpg', alt: 'Memory 6', rotation: 'rotate(-3deg)' },
+    { src: '/images/About us/IMG_9262.jpg', alt: 'Memory 6', rotation: 'rotate(-3deg) scaleY(-1)' },
     { src: '/images/About us/IMG_9632.jpg', alt: 'Memory 7', rotation: 'rotate(2deg)' },
     { src: '/images/About us/f3282601-cbaa-4807-8c70-afa659c56a70.jpg', alt: 'Memory 8', rotation: 'rotate(-1deg)' },
     { src: '/images/About us/coupleanimation.GIF', alt: 'Animated Memory', rotation: 'rotate(0deg)' }
@@ -84,10 +84,6 @@ const AboutUs = () => {
   
   const handleNextImage = () => {
     setCurrentImageIndex(prev => prev + 1);
-  };
-  
-  const goToSlide = (slideIndex) => {
-    setCurrentImageIndex(originalImages.length + slideIndex * imagesPerView);
   };
   
   const openImageOverlay = (image) => {
@@ -293,16 +289,6 @@ const AboutUs = () => {
                 >
                   ›
                 </button>
-              </div>
-              
-              <div className="carousel-dots">
-                {Array.from({ length: originalImages.length }).map((_, index) => (
-                  <button
-                    key={index}
-                    className={`carousel-dot ${Math.floor((currentImageIndex - originalImages.length) / imagesPerView) === index ? 'active' : ''}`}
-                    onClick={() => goToSlide(index)}
-                  />
-                ))}
               </div>
             </div>
           </div>

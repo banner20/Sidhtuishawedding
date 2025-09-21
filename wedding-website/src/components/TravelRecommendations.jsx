@@ -5,6 +5,7 @@ const TravelRecommendations = () => {
   const [activeCity, setActiveCity] = useState('delhi');
   const [openSections, setOpenSections] = useState({});
   const [activeDay, setActiveDay] = useState('day1');
+  const [activeJaipurDay, setActiveJaipurDay] = useState('day1');
 
   const toggleSection = (sectionId) => {
     setOpenSections(prev => ({
@@ -93,6 +94,75 @@ const TravelRecommendations = () => {
     { key: 'day2', label: 'DAY 2' },
     { key: 'day3', label: 'DAY 3' }
   ];
+
+  const jaipurItineraryData = {
+    day1: {
+      date: 'Day 1',
+      theme: 'Royal Heritage & Iconic Landmarks',
+      events: [
+        {
+          time: 'Morning',
+          period: '',
+          title: 'Hawa Mahal & City Palace',
+          description: 'Explore Hawa Mahal and City Palace; you can likely take a tour on the day as you rock up – there will be dozens of tour guides that will be in your face asking you if you want one. Would recommend to better learn about what you\'re looking at and most tours are less than an hour long. Tours in English should not be an issue.'
+        },
+        {
+          time: 'Afternoon',
+          period: '',
+          title: 'Jantar Mantar & Lunch',
+          description: 'Visit Jantar Mantar then enjoy lunch at Baradari'
+        },
+        {
+          time: 'Evening',
+          period: '',
+          title: 'Bazaar Shopping & Dinner',
+          description: 'Shop in the bazaars and dine at Bar Palladio or Meraki Kitchen'
+        }
+      ]
+    },
+    day2: {
+      date: 'Day 2',
+      theme: 'Fort Exploration & Sunset Views',
+      events: [
+        {
+          time: 'Morning',
+          period: '',
+          title: 'Amer Fort & Jaigarh Fort',
+          description: 'Tour Amer Fort and Jaigarh Fort'
+        },
+        {
+          time: 'Afternoon',
+          period: '',
+          title: 'Nahargarh Fort & Jal Mahal',
+          description: 'Head to Nahargarh Fort for sunset and view Jal Mahal by the lake'
+        },
+        {
+          time: 'Evening',
+          period: '',
+          title: 'Palace Dining',
+          description: 'Casual dinner at The Verandah in Rambagh Palace'
+        }
+      ]
+    },
+    day3: {
+      date: 'Day 3',
+      theme: 'Local Gems & Quieter Spaces',
+      events: [
+        {
+          time: 'Morning',
+          period: '',
+          title: 'Free Time',
+          description: 'Free time for shopping or spa'
+        },
+        {
+          time: 'Evening',
+          period: '',
+          title: 'Cocktails & Nightlife',
+          description: 'Optional evening cocktails at Native Cocktail Room or Savannah'
+        }
+      ]
+    }
+  };
 
   const gurgaonItinerary = {
     title: 'Day 3 Alternative - Gurgaon Experience',
@@ -682,58 +752,43 @@ const TravelRecommendations = () => {
                 
                 {openSections['jaipur-itinerary'] && (
                   <div className="section-content">
-                
-                <div className="itinerary-day">
-                  <h3>Day 1: Royal Heritage & Iconic Landmarks</h3>
-                  
-                  <div className="time-block">
-                    <h4>Morning:</h4>
-                    <p>Explore <strong>Hawa Mahal</strong> and <strong>City Palace</strong>; you can likely take a tour on the day as you rock up – there will be dozens of tour guides that will be in your face asking you if you want one. Would recommend to better learn about what you're looking at and most tours are less than an hour long. Tours in English should not be an issue.</p>
-                  </div>
-                  
-                  <div className="time-block">
-                    <h4>Afternoon:</h4>
-                    <p>Visit <strong>Jantar Mantar</strong> then enjoy lunch at <strong>Baradari</strong></p>
-                  </div>
-                  
-                  <div className="time-block">
-                    <h4>Evening:</h4>
-                    <p>Shop in the <strong>bazaars</strong> and dine at <strong>Bar Palladio</strong> or <strong>Meraki Kitchen</strong></p>
-                  </div>
-                </div>
-                
-                <div className="itinerary-day">
-                  <h3>Day 2: Fort Exploration & Sunset Views</h3>
-                  
-                  <div className="time-block">
-                    <h4>Morning:</h4>
-                    <p>Tour <strong>Amer Fort</strong> and <strong>Jaigarh Fort</strong></p>
-                  </div>
-                  
-                  <div className="time-block">
-                    <h4>Afternoon:</h4>
-                    <p>Head to <strong>Nahargarh Fort</strong> for sunset and view <strong>Jal Mahal</strong> by the lake</p>
-                  </div>
-                  
-                  <div className="time-block">
-                    <h4>Evening:</h4>
-                    <p>Casual dinner at <strong>The Verandah</strong> in Rambagh Palace</p>
-                  </div>
-                </div>
-                
-                <div className="itinerary-day">
-                  <h3>Day 3: Local Gems & Quieter Spaces</h3>
-                  
-                  <div className="time-block">
-                    <h4>Morning:</h4>
-                    <p>Free time for shopping or spa</p>
-                  </div>
-                  
-                  <div className="time-block">
-                    <h4>Evening:</h4>
-                    <p>Optional evening cocktails at <strong>Native Cocktail Room</strong> or <strong>Savannah</strong></p>
-                  </div>
-                </div>
+                    <p className="subtitle">Your guide to exploring Jaipur in 2-3 days</p>
+                    
+                    {/* Day Tabs */}
+                    <div className="day-tabs">
+                      {days.map(day => (
+                        <button 
+                          key={day.key}
+                          className={`day-tab animate-button ${activeJaipurDay === day.key ? 'active' : ''}`}
+                          onClick={() => setActiveJaipurDay(day.key)}
+                        >
+                          {day.label}
+                        </button>
+                      ))}
+                    </div>
+                    
+                    {/* Timeline Content */}
+                    <div className="timeline-container">
+                      <div className="timeline-header">
+                        <h3 className="timeline-date">{jaipurItineraryData[activeJaipurDay].date}</h3>
+                        <p className="timeline-theme">{jaipurItineraryData[activeJaipurDay].theme}</p>
+                      </div>
+                      
+                      <div className="timeline">
+                        {jaipurItineraryData[activeJaipurDay].events.map((event, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="timeline-time">
+                              <span className="time">{event.time}</span>
+                              <span className="period">{event.period}</span>
+                            </div>
+                            <div className="timeline-content animate-hover-lift">
+                              <h4 className="event-title">{event.title}</h4>
+                              <p className="event-description">{event.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 )}
               </section>

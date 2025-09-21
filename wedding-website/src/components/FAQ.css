@@ -64,11 +64,25 @@
   font-family: 'Lato', sans-serif;
   font-size: 1.1rem;
   color: var(--text-dark);
+  border-radius: 8px;
+  position: relative;
 }
 
 .faq-section-header:hover {
-  background: transparent;
-  opacity: 0.8;
+  background: rgba(212, 165, 116, 0.1);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+  color: var(--primary-color);
+}
+
+.faq-section-header:hover .toggle-icon {
+  transform: scale(1.2);
+  color: var(--secondary-color);
+}
+
+.faq-section-header:hover .section-icon {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--primary-color);
 }
 
 .faq-section-header.open {
@@ -79,6 +93,7 @@
 .section-icon {
   font-size: 1.5rem;
   margin-right: 1rem;
+  transition: all 0.3s ease;
 }
 
 .section-title-text {

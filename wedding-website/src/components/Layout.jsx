@@ -65,12 +65,11 @@ const Layout = ({ children }) => {
       <footer className="footer">
         <div className="container">
           <div className="footer-nav">
-            <Link to="/" className="animate-hover-glow">Home</Link>
-            <Link to="/story" className="animate-hover-glow">Our Story</Link>
-            <Link to="/venue" className="animate-hover-glow">Venue</Link>
-            <Link to="/itinerary" className="animate-hover-glow">Itinerary</Link>
-            <Link to="/registry" className="animate-hover-glow">Registry</Link>
-            <Link to="/rsvp" className="animate-hover-glow">RSVP</Link>
+            {navItems.map((item) => (
+              <Link key={item.path} to={item.path} className="animate-hover-glow">
+                {item.label}
+              </Link>
+            ))}
           </div>
           <p className="footer-text">
             Built by Spectroxia Studios

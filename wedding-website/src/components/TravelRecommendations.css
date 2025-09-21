@@ -43,16 +43,36 @@
   font-family: 'Montaga', serif;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   color: var(--primary-color);
   flex: 1;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.city-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
 
 .city-btn:hover {
   background: var(--primary-color);
   color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+  font-weight: 600;
+}
+
+.city-btn:hover::before {
+  left: 100%;
 }
 
 .city-btn.active {
@@ -93,10 +113,21 @@
   cursor: pointer;
   padding: 0.5rem 0;
   transition: all 0.3s ease;
+  border-radius: 8px;
+  position: relative;
 }
 
 .section-header:hover {
-  opacity: 0.8;
+  background: rgba(212, 165, 116, 0.1);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section-header:hover .toggle-icon {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--secondary-color);
 }
 
 .toggle-icon {
@@ -330,17 +361,37 @@
   font-family: 'MrsEaves', 'Lato', sans-serif;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   color: var(--primary-color);
   flex: 1;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.day-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
 
 .day-tab:hover {
   background: var(--primary-color);
   color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+  font-weight: 600;
+}
+
+.day-tab:hover::before {
+  left: 100%;
 }
 
 .day-tab.active {
