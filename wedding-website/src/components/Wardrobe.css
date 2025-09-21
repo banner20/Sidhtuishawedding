@@ -1,2 +1,11 @@
-/* Wardrobe page uses the same base styles as Cards */
+/* Wardrobe page uses the same base styles as Cards but with slight variations */
 @import './Cards.css';
+
+/* Override specific Wardrobe styling */
+.wardrobe .wardrobe-decoration-tulip {
+  /* No animation, just static positioning */
+}
+
+.wardrobe .wardrobe-decoration-fan {
+  /* No animation, just static positioning */
+}

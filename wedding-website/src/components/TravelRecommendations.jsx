@@ -135,6 +135,13 @@ const TravelRecommendations = () => {
     <div className="travel">
       <div className="container">
         <div className="page-header">
+          <div className="travel-decoration-top">
+            <img 
+              src="/images/decorationleaf.png" 
+              alt="Decorative leaf" 
+              style={{height: '100px', width: '100px', objectFit: 'contain'}} 
+            />
+          </div>
           <h1 className="section-title">Travel Recommendations</h1>
           <p className="subtitle">Your guide to exploring incredible destinations</p>
           
@@ -160,6 +167,13 @@ const TravelRecommendations = () => {
             <>
               {/* Historical & Architectural Highlights */}
               <section className="travel-section">
+                <div className="travel-section-decoration">
+                  <img 
+                    src="/images/decorationtulip.png" 
+                    alt="Decorative tulip" 
+                    style={{height: '70px', width: '70px', objectFit: 'contain'}} 
+                  />
+                </div>
                 <div 
                   className="section-header animate-hover-glow" 
                   onClick={() => toggleSection('delhi-historical')}
@@ -247,6 +261,13 @@ const TravelRecommendations = () => {
 
               {/* Local Charm, Culture, & Shopping */}
               <section className="travel-section">
+                <div className="travel-section-decoration">
+                  <img 
+                    src="/images/decorationfan.png" 
+                    alt="Decorative fan" 
+                    style={{height: '75px', width: '75px', objectFit: 'contain'}} 
+                  />
+                </div>
                 <div 
                   className="section-header" 
                   onClick={() => toggleSection('delhi-culture')}

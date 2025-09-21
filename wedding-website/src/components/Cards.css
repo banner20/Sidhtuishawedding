@@ -1,25 +1,25 @@
 .cards,
 .wardrobe {
   padding: 3rem 0;
-  background: var(--cream);
+  background: var(--warm-champagne);
   min-height: calc(100vh - 200px);
   position: relative;
 }
 
 .cards-decoration-fan {
   position: absolute;
-  top: 30px;
-  right: 100px;
+  top: 10px;
+  right: 50px;
   transform: rotate(15deg);
-  z-index: 1;
+  z-index: 0;
 }
 
 .wardrobe-decoration-tulip {
   position: absolute;
-  top: 20px;
-  left: 80px;
+  top: 10px;
+  left: 50px;
   transform: rotate(-18deg);
-  z-index: 1;
+  z-index: 0;
 }
 
 .page-header {
@@ -98,7 +98,7 @@
 }
 
 .card-description {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   line-height: 1.5;
   color: var(--text-dark);
@@ -132,7 +132,7 @@
 }
 
 .cards-note p {
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--text-dark);

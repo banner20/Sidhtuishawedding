@@ -1,13 +1,20 @@
 .travel {
-.travel {
   padding: 3rem 0;
-  background: var(--cream);
+  background: var(--warm-coral);
   min-height: calc(100vh - 200px);
 }
 
 .page-header {
+  position: relative;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.travel-decoration-top {
+  position: absolute;
+  top: -25px;
+  right: 20px;
+  opacity: 1;
 }
 
 .page-header .subtitle {
@@ -33,7 +40,7 @@
   background: transparent;
   border: none;
   padding: 12px 24px;
-  font-family: 'MrsEaves', 'Lato', sans-serif;
+  font-family: 'Montaga', serif;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -56,12 +63,22 @@
 .travel-content {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .travel-section {
+  position: relative;
   margin-bottom: 2rem;
   padding: 0;
   border-bottom: 1px solid var(--border-light);
+}
+
+.travel-section-decoration {
+  position: absolute;
+  top: -10px;
+  right: -50px;
+  opacity: 1;
+  z-index: 0;
 }
 
 .travel-section:last-child {
@@ -668,5 +685,11 @@
   
   .attraction p {
     font-size: 0.9rem;
+  }
+  
+  /* Hide decorations on mobile for cleaner look */
+  .travel-decoration-top,
+  .travel-section-decoration {
+    display: none;
   }
 }

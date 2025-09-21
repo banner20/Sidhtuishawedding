@@ -146,11 +146,25 @@ const FAQ = () => {
     <div className="faq">
       <div className="container">
         <div className="faq-header">
+          <div className="faq-decoration-top">
+            <img 
+              src="/images/decorationbigtree.png" 
+              alt="Decorative tree" 
+              style={{height: '120px', width: '120px', objectFit: 'contain'}} 
+            />
+          </div>
           <h1 className="section-title">FAQ</h1>
           <p className="subtitle">Everything you need to know about our celebration</p>
         </div>
 
         <div className="faq-sections">
+          <div className="faq-middle-decoration">
+            <img 
+              src="/images/decorationleaf.png" 
+              alt="Decorative leaf" 
+              style={{height: '85px', width: '85px', objectFit: 'contain'}} 
+            />
+          </div>
           {faqSections.map((section) => (
             <div key={section.id} className="faq-section">
               <button 

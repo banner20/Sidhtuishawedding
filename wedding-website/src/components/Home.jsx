@@ -19,7 +19,21 @@ const Home = () => {
       <section className="homepage-card-section">
         <div className="container">
           <div className="homepage-card">
+            <div className="homepage-decoration-left">
+              <img 
+                src="/images/decorationleaf.png" 
+                alt="Decorative leaf" 
+                style={{height: '90px', width: '90px', objectFit: 'contain'}} 
+              />
+            </div>
             <h2 className="section-title">HOMEPAGE CARD TBD</h2>
+            <div className="homepage-decoration-right">
+              <img 
+                src="/images/decorationtulip.png" 
+                alt="Decorative tulip" 
+                style={{height: '95px', width: '95px', objectFit: 'contain'}} 
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -27,6 +41,13 @@ const Home = () => {
       {/* Our Story Section - Preview with image */}
       <section className="about-preview">
         <div className="container">
+          <div className="story-decoration-top">
+            <img 
+              src="/images/decorationfan.png" 
+              alt="Decorative fan" 
+              style={{height: '80px', width: '80px', objectFit: 'contain'}} 
+            />
+          </div>
           <h2 className="section-title">Our Story</h2>
           <div className="about-preview-content">
             <div className="story-text">
@@ -75,7 +96,7 @@ const Home = () => {
                     style={{height: '250px', width: '350px', objectFit: 'cover'}} 
                   />
                 </div>
-                <div className="venue-decoration animate-float">
+                <div className="venue-decoration">
                   <img 
                     src="/images/decoration.png" 
                     alt="Decorative Element" 
@@ -91,6 +112,13 @@ const Home = () => {
       {/* RSVP Section */}
       <section className="rsvp-preview">
         <div className="container">
+          <div className="rsvp-decoration-tree">
+            <img 
+              src="/images/decorationbigtree.png" 
+              alt="Decorative tree" 
+              style={{height: '140px', width: '140px', objectFit: 'contain'}} 
+            />
+          </div>
           <h2 className="section-title">RSVP</h2>
           <div className="rsvp-content">
             <p className="rsvp-description">

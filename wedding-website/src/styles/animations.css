@@ -306,9 +306,9 @@
   animation: pulse 2s infinite;
 }
 
-/* Float Animation */
+/* Float Animation - DISABLED FOR DECORATIONS */
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  /* No animation for decorative elements */
 }
 
 /* Wiggle Animation */

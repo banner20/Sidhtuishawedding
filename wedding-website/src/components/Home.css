@@ -5,7 +5,7 @@
 .hero {
   text-align: center;
   padding: 3rem 0;
-  background: var(--cream);
+  background: var(--warm-coral);
 }
 
 .hero .subtitle {
@@ -32,19 +32,45 @@
 
 .homepage-card-section {
   padding: 4rem 0;
-  background: var(--white);
+  background: var(--soft-blush);
 }
 
 .homepage-card {
+  position: relative;
   text-align: center;
   padding: 5rem 2rem;
-  background: var(--warm-gray);
+  background: var(--warm-champagne);
   border-radius: 12px;
 }
 
+.homepage-decoration-left {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  opacity: 1;
+  z-index: 0;
+}
+
+.homepage-decoration-right {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 1;
+  z-index: 0;
+}
+
 .about-preview {
+  position: relative;
   padding: 2rem 0;
-  background: var(--white);
+  background: var(--warm-coral);
+}
+
+.story-decoration-top {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  opacity: 1;
+  z-index: 0;
 }
 
 .about-preview-content {
@@ -75,7 +101,7 @@
 
 .venue {
   padding: 3rem 0;
-  background: var(--warm-gray);
+  background: var(--warm-peach);
 }
 
 .venue-content {
@@ -140,9 +166,18 @@
 }
 
 .rsvp-preview {
+  position: relative;
   padding: 3rem 0;
-  background: var(--white);
+  background: var(--dusty-rose);
   text-align: center;
+}
+
+.rsvp-decoration-tree {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  opacity: 1;
+  z-index: 0;
 }
 
 .rsvp-content {
@@ -188,5 +223,13 @@
   .attendance-options {
     flex-direction: column;
     gap: 0.5rem;
+  }
+  
+  /* Hide decorations on mobile for cleaner look */
+  .homepage-decoration-left,
+  .homepage-decoration-right,
+  .story-decoration-top,
+  .rsvp-decoration-tree {
+    display: none;
   }
 }

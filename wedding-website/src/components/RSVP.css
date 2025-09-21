@@ -1,12 +1,20 @@
 .rsvp-page {
   padding: 5rem 0;
-  background: var(--cream);
+  background: var(--dusty-rose);
   min-height: calc(100vh - 200px);
 }
 
 .page-header {
+  position: relative;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.rsvp-decoration-top {
+  position: absolute;
+  top: -25px;
+  right: 15px;
+  opacity: 1;
 }
 
 .page-header .subtitle {
@@ -14,6 +22,7 @@
 }
 
 .rsvp-form-container {
+  position: relative;
   max-width: 700px;
   margin: 0 auto;
   background: var(--white);
@@ -21,6 +30,22 @@
   padding: 3.5rem;
   box-shadow: 0 2px 25px rgba(0, 0, 0, 0.04);
   border: 1px solid var(--border-light);
+}
+
+.rsvp-form-decoration-left {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  opacity: 1;
+  z-index: 0;
+}
+
+.rsvp-form-decoration-right {
+  position: absolute;
+  bottom: -25px;
+  right: 20px;
+  opacity: 1;
+  z-index: 0;
 }
 
 .rsvp-form-full {
@@ -160,5 +185,12 @@
   
   .form-section h3 {
     font-size: 1.3rem;
+  }
+  
+  /* Hide decorations on mobile for cleaner look */
+  .rsvp-decoration-top,
+  .rsvp-form-decoration-left,
+  .rsvp-form-decoration-right {
+    display: none;
   }
 }

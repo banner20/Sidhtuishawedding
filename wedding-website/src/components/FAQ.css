@@ -1,12 +1,20 @@
 .faq {
   padding: 5rem 0;
-  background: var(--cream);
+  background: var(--soft-blush);
   min-height: calc(100vh - 200px);
 }
 
 .faq-header {
+  position: relative;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.faq-decoration-top {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  opacity: 1;
 }
 
 .faq-header .subtitle {
@@ -14,9 +22,19 @@
 }
 
 .faq-sections {
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
+}
+
+.faq-middle-decoration {
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  transform: translateY(-50%);
+  opacity: 1;
+  z-index: 0;
 }
 
 .faq-section {
@@ -165,5 +183,11 @@
   
   .faq-answer {
     font-size: 0.9rem;
+  }
+  
+  /* Hide decorations on mobile for cleaner look */
+  .faq-decoration-top,
+  .faq-middle-decoration {
+    display: none;
   }
 }

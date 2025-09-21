@@ -5,11 +5,25 @@ const RSVP = () => {
     <div className="rsvp-page">
       <div className="container">
         <div className="page-header">
+          <div className="rsvp-decoration-top">
+            <img 
+              src="/images/decorationtulip.png" 
+              alt="Decorative tulip" 
+              style={{height: '110px', width: '110px', objectFit: 'contain'}} 
+            />
+          </div>
           <h1 className="section-title">RSVP</h1>
           <p className="subtitle">Please let us know if you'll be joining our celebration</p>
         </div>
         
         <div className="rsvp-form-container">
+          <div className="rsvp-form-decoration-left">
+            <img 
+              src="/images/decorationfan.png" 
+              alt="Decorative fan" 
+              style={{height: '90px', width: '90px', objectFit: 'contain'}} 
+            />
+          </div>
           <form className="rsvp-form-full">
             <div className="form-section">
               <h3>Personal Information</h3>
@@ -62,6 +76,13 @@ const RSVP = () => {
 
             <button type="submit" className="btn btn-large">SUBMIT RSVP</button>
           </form>
+          <div className="rsvp-form-decoration-right">
+            <img 
+              src="/images/decorationleaf.png" 
+              alt="Decorative leaf" 
+              style={{height: '85px', width: '85px', objectFit: 'contain'}} 
+            />
+          </div>
         </div>
       </div>
     </div>
