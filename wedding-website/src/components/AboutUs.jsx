@@ -1,6 +1,102 @@
 import './AboutUs.css';
+import { useState, useEffect } from 'react';
 
 const AboutUs = () => {
+  // Carousel state and logic
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagesPerView, setImagesPerView] = useState(3);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  
+  // All carousel images (excluding the ones already used in main content)
+  const originalImages = [
+    { src: '/images/About us/IMG_0433.jpg', alt: 'Memory 1', rotation: 'rotate(2deg)' },
+    { src: '/images/About us/IMG_0579.jpg', alt: 'Memory 2', rotation: 'rotate(-1deg)' },
+    { src: '/images/About us/IMG_2390.jpg', alt: 'Memory 3', rotation: 'rotate(3deg)' },
+    { src: '/images/About us/IMG_8754.jpg', alt: 'Memory 4', rotation: 'rotate(-2deg)' },
+    { src: '/images/About us/IMG_9088.jpg', alt: 'Memory 5', rotation: 'rotate(1deg)' },
+    { src: '/images/About us/IMG_9262.jpg', alt: 'Memory 6', rotation: 'rotate(-3deg)' },
+    { src: '/images/About us/IMG_9632.jpg', alt: 'Memory 7', rotation: 'rotate(2deg)' },
+    { src: '/images/About us/f3282601-cbaa-4807-8c70-afa659c56a70.jpg', alt: 'Memory 8', rotation: 'rotate(-1deg)' },
+    { src: '/images/About us/coupleanimation.GIF', alt: 'Animated Memory', rotation: 'rotate(0deg)' }
+  ];
+  
+  // Create infinite carousel by duplicating images
+  const carouselImages = [...originalImages, ...originalImages, ...originalImages];
+  
+  // Handle responsive images per view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setImagesPerView(1);
+      } else if (window.innerWidth <= 1024) {
+        setImagesPerView(2);
+      } else {
+        setImagesPerView(3);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Initialize carousel to start from the middle set of images
+  useEffect(() => {
+    setCurrentImageIndex(originalImages.length);
+  }, [originalImages.length]);
+  
+  // Auto-scroll functionality with infinite loop
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(prev => prev + 1);
+    }, 4000); // Auto-scroll every 4 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  // Handle infinite loop transitions
+  useEffect(() => {
+    const handleInfiniteLoop = () => {
+      if (currentImageIndex >= originalImages.length * 2) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setCurrentImageIndex(originalImages.length);
+          setIsTransitioning(false);
+        }, 500);
+      } else if (currentImageIndex < originalImages.length) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setCurrentImageIndex(originalImages.length * 2 - imagesPerView);
+          setIsTransitioning(false);
+        }, 500);
+      }
+    };
+    
+    if (currentImageIndex !== originalImages.length) {
+      handleInfiniteLoop();
+    }
+  }, [currentImageIndex, originalImages.length, imagesPerView]);
+  
+  const handlePrevImage = () => {
+    setCurrentImageIndex(prev => prev - 1);
+  };
+  
+  const handleNextImage = () => {
+    setCurrentImageIndex(prev => prev + 1);
+  };
+  
+  const goToSlide = (slideIndex) => {
+    setCurrentImageIndex(originalImages.length + slideIndex * imagesPerView);
+  };
+  
+  const openImageOverlay = (image) => {
+    setSelectedImage(image);
+  };
+  
+  const closeImageOverlay = () => {
+    setSelectedImage(null);
+  };
   return (
     <div className="about-us">
       <div className="container">
@@ -153,8 +249,86 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
+
+          {/* Image Carousel Section */}
+          <div className="carousel-section">
+            <h3 className="carousel-title">Our Journey in Pictures</h3>
+            <div className="image-carousel">
+              <div className="carousel-container">
+                <button 
+                  className="carousel-btn prev-btn" 
+                  onClick={handlePrevImage}
+                >
+                  ‹
+                </button>
+                
+                <div className="carousel-images">
+                  <div 
+                    className="carousel-track"
+                    style={{ 
+                      transform: `translateX(-${currentImageIndex * (100 / imagesPerView)}%)`,
+                      transition: isTransitioning ? 'none' : 'transform 0.5s ease-in-out'
+                    }}
+                  >
+                    {carouselImages.map((image, index) => (
+                      <div key={index} className="carousel-item">
+                        <div 
+                          className="carousel-polaroid"
+                          onClick={() => openImageOverlay(image)}
+                        >
+                          <img 
+                            src={image.src} 
+                            alt={image.alt}
+                            style={{ transform: image.rotation }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <button 
+                  className="carousel-btn next-btn" 
+                  onClick={handleNextImage}
+                >
+                  ›
+                </button>
+              </div>
+              
+              <div className="carousel-dots">
+                {Array.from({ length: originalImages.length }).map((_, index) => (
+                  <button
+                    key={index}
+                    className={`carousel-dot ${Math.floor((currentImageIndex - originalImages.length) / imagesPerView) === index ? 'active' : ''}`}
+                    onClick={() => goToSlide(index)}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      
+      {/* Image Overlay */}
+      {selectedImage && (
+        <div className="image-overlay" onClick={closeImageOverlay}>
+          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={closeImageOverlay}>
+              ×
+            </button>
+            <div className="overlay-image-container">
+              <img 
+                src={selectedImage.src} 
+                alt={selectedImage.alt} 
+                className="overlay-image"
+              />
+            </div>
+            <div className="overlay-caption">
+              <h3>{selectedImage.alt}</h3>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
