@@ -645,12 +645,12 @@
   }
   
   .timeline-container {
-    padding: 1rem 0;
+    padding: 1rem;
   }
   
   .timeline-header {
     margin-bottom: 2rem;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
   }
   
   .timeline-date {
@@ -662,21 +662,35 @@
   }
   
   .timeline {
-    padding-left: 1rem;
+    padding-left: 0;
+  }
+  
+  .timeline::before {
+    left: 20px;
+    width: 2px;
   }
   
   .timeline-item {
-    padding-left: 2rem;
+    padding-left: 50px;
     margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .timeline-item::before {
+    left: 11px;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
   }
   
   .timeline-time {
     position: static;
     width: auto;
     text-align: left;
-    padding: 0 0 1rem 0;
+    padding: 0;
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.5rem;
   }
   
   .time {
@@ -688,18 +702,21 @@
   .period {
     display: inline;
     margin-top: 0;
+    font-size: 1rem;
   }
   
   .timeline-content {
-    padding: 1.5rem;
+    padding: 0;
   }
   
   .event-title {
     font-size: 1.3rem;
+    margin-bottom: 0.8rem;
   }
   
   .event-description {
     font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
 
