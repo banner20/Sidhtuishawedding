@@ -4,32 +4,43 @@ const RSVP = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const data = {
-      first_name: event.target.first_name.value,
-      last_name: event.target.last_name.value,
-      phone: event.target.phone.value,
-      guests: event.target.guests.value,
-      notes: event.target.notes.value,
-    };
+    const formData = new FormData();
+    formData.append('first_name', event.target.first_name.value);
+    formData.append('last_name', event.target.last_name.value);
+    formData.append('phone', event.target.phone.value);
+    formData.append('guests', event.target.guests.value);
+    formData.append('notes', event.target.notes.value);
 
     try {
       const response = await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
         method: 'POST',
-        body: new URLSearchParams(data),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        }
+        body: formData
       });
 
-      const text = await response.text();
-      if (text === 'Success') {
+      const result = await response.text();
+      console.log('Response:', result);
+      
+      if (response.ok) {
         alert('RSVP submitted successfully!');
         event.target.reset();
       } else {
         alert('Failed to submit RSVP. Please try again.');
       }
     } catch (error) {
-      alert('Error submitting RSVP: ' + error.message);
+      console.error('Error details:', error);
+      // Try the alternative method with no-cors
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+        alert('RSVP submitted successfully!');
+        event.target.reset();
+      } catch (secondError) {
+        console.error('Second attempt failed:', secondError);
+        alert('Error submitting RSVP. Please check your internet connection and try again.');
+      }
     }
   };
   return (
@@ -55,7 +66,7 @@ const RSVP = () => {
               style={{height: '90px', width: '90px', objectFit: 'contain'}} 
             />
           </div>
-          <form className="rsvp-form-full" onSubmit={handleSubmit}>
+          <form className="rsvp-form-full" action="https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec" method="POST" target="_blank" onSubmit={handleSubmit}>
             <div className="form-section">
               <h3>Personal Information</h3>
               <div className="form-row">
