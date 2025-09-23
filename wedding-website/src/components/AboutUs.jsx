@@ -10,15 +10,16 @@ const AboutUs = () => {
   
   // All carousel images (excluding the ones already used in main content)
   const originalImages = [
-    { src: '/images/About us/IMG_0433.jpg', alt: 'Memory 1', rotation: 'rotate(2deg)' },
-    { src: '/images/About us/IMG_0579.jpg', alt: 'Memory 2', rotation: 'rotate(-1deg)' },
-    { src: '/images/About us/IMG_2390.jpg', alt: 'Memory 3', rotation: 'rotate(3deg)' },
-    { src: '/images/About us/IMG_8754.jpg', alt: 'Memory 4', rotation: 'rotate(-2deg)' },
-    { src: '/images/About us/IMG_9088.jpg', alt: 'Memory 5', rotation: 'rotate(1deg)' },
-    { src: '/images/About us/IMG_9262.jpg', alt: 'Memory 6', rotation: 'rotate(-3deg) scaleY(-1)' },
-    { src: '/images/About us/IMG_9632.jpg', alt: 'Memory 7', rotation: 'rotate(2deg)' },
-    { src: '/images/About us/f3282601-cbaa-4807-8c70-afa659c56a70.jpg', alt: 'Memory 8', rotation: 'rotate(-1deg)' },
-    { src: '/images/About us/coupleanimation.GIF', alt: 'Animated Memory', rotation: 'rotate(0deg)' }
+    { src: '/images/About us/IMG_0433.jpg', alt: 'Our first trip to India together, 2023', rotation: 'rotate(2deg)' },
+    { src: '/images/About us/IMG_0579.jpg', alt: 'Our first trip to Jaipur together, 2023', rotation: 'rotate(-1deg)' },
+    { src: '/images/About us/IMG_2390.jpg', alt: 'Day after we got engaged in Marrakesh, 2025', rotation: 'rotate(3deg)' },
+    { src: '/images/About us/IMG_8754.jpg', alt: 'Exploring Lisbon, 2022', rotation: 'rotate(-2deg)' },
+    { src: '/images/About us/IMG_9088.jpg', alt: 'Offroading in the Agafay desert, 2025', rotation: 'rotate(1deg)' },
+    { src: '/images/About us/IMG_9262.jpg', alt: 'Getting delicious sandwiches together in Florence, 2024', rotation: 'rotate(-3deg) scaleY(-1)' },
+    { src: '/images/About us/IMG_9632.jpg', alt: 'Cocktail making class, 2023', rotation: 'rotate(2deg)' },
+    { src: '/images/About us/f3282601-cbaa-4807-8c70-afa659c56a70.jpg', alt: 'Eating gelato in London, 2024', rotation: 'rotate(-1deg)' },
+    { src: '/images/About us/coupleanimation.GIF', alt: 'Animated Memory', rotation: 'rotate(0deg)' },
+    { src: '/images/About us/Hanging out in Paris, 2025.JPG', alt: 'Hanging out in Paris, 2025', rotation: 'rotate(0deg)' }
   ];
   
   // Create infinite carousel by duplicating images
@@ -198,7 +199,7 @@ const AboutUs = () => {
                 <div className="tuisha-section">
                   <div className="polaroid small">
                     <img 
-                      src="/images/About us/tuisha.jpg" 
+                      src="/images/About us/TUISHA SOLO PIC.jpg" 
                       alt="Tuisha's World" 
                       style={{height: '200px', width: '160px', objectFit: 'cover'}} 
                     />
