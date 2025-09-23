@@ -1,6 +1,37 @@
 import './RSVP.css';
 
 const RSVP = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = {
+      first_name: event.target.first_name.value,
+      last_name: event.target.last_name.value,
+      phone: event.target.phone.value,
+      guests: event.target.guests.value,
+      notes: event.target.notes.value,
+    };
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
+        method: 'POST',
+        body: new URLSearchParams(data),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }
+      });
+
+      const text = await response.text();
+      if (text === 'Success') {
+        alert('RSVP submitted successfully!');
+        event.target.reset();
+      } else {
+        alert('Failed to submit RSVP. Please try again.');
+      }
+    } catch (error) {
+      alert('Error submitting RSVP: ' + error.message);
+    }
+  };
   return (
     <div className="rsvp-page">
       <div className="container">
@@ -24,22 +55,22 @@ const RSVP = () => {
               style={{height: '90px', width: '90px', objectFit: 'contain'}} 
             />
           </div>
-          <form className="rsvp-form-full">
+          <form className="rsvp-form-full" onSubmit={handleSubmit}>
             <div className="form-section">
               <h3>Personal Information</h3>
               <div className="form-row">
                 <div className="form-group">
                   <label>First Name *</label>
-                  <input type="text" required />
+                  <input type="text" name="first_name" required />
                 </div>
                 <div className="form-group">
                   <label>Last Name *</label>
-                  <input type="text" required />
+                  <input type="text" name="last_name" required />
                 </div>
               </div>
               <div className="form-group">
-                <label>Email Address *</label>
-                <input type="email" required />
+                <label>Phone Number *</label>
+                <input type="tel" name="phone" required />
               </div>
             </div>
 
@@ -47,30 +78,15 @@ const RSVP = () => {
               <h3>Event Details</h3>
               <div className="form-group">
                 <label>Number of Guests</label>
-                <div className="guest-options">
-                  <label><input type="radio" name="guests" value="1" /> One</label>
-                  <label><input type="radio" name="guests" value="2" /> Two</label>
-                  <label><input type="radio" name="guests" value="3" /> Three</label>
-                  <label><input type="radio" name="guests" value="4" /> Four</label>
-                </div>
+                <input type="text" name="guests" placeholder="Enter number of guests" />
               </div>
-              
-              <div className="form-group">
-                <label>Attendance *</label>
-                <div className="attendance-options">
-                  <label><input type="checkbox" /> Absolutely with pleasure</label>
-                  <label><input type="checkbox" /> Regretfully Decline</label>
-                  <label><input type="checkbox" /> Rehearsal Dinner</label>
-                  <label><input type="checkbox" /> Ceremony</label>
-                  <label><input type="checkbox" /> Reception</label>
-                </div>
-              </div>
+
             </div>
 
             <div className="form-section">
               <div className="form-group">
                 <label>Special Dietary Requirements or Notes</label>
-                <textarea rows="4" placeholder="Please let us know about any dietary restrictions, accessibility needs, or special requests..."></textarea>
+                <textarea name="notes" rows="4" placeholder="Please let us know about any dietary restrictions, accessibility needs, or special requests..."></textarea>
               </div>
             </div>
 

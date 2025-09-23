@@ -91,8 +91,8 @@
   font-weight: 500;
 }
 
-.form-group input[type=\"text\"],
-.form-group input[type=\"email\"],
+.form-group input[type="text"],
+.form-group input[type="tel"],
 .form-group textarea {
   width: 100%;
   padding: 1rem;
@@ -104,8 +104,8 @@
   transition: border-color 0.3s ease;
 }
 
-.form-group input[type=\"text\"]:focus,
-.form-group input[type=\"email\"]:focus,
+.form-group input[type="text"]:focus,
+.form-group input[type="tel"]:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
