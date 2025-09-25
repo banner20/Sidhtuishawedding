@@ -1,62 +1,18 @@
 .home {
-  padding-top: 2rem;
+  padding-top: 0;
 }
 
-.hero {
-  text-align: center;
-  padding: 3rem 0;
-  background: var(--warm-coral);
-}
-
-.hero .subtitle {
-  margin-bottom: 1rem;
-}
-
-.wedding-details {
-  margin-top: 2rem;
-}
-
-.wedding-date {
-  font-family: 'Montaga', serif;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  margin: 0;
-}
-
-.wedding-location {
-  font-family: 'Montaga', serif;
-  font-size: 1.1rem;
-  color: var(--text-light);
-  margin: 0.5rem 0 0;
-}
-
-.homepage-card-section {
-  padding: 4rem 0;
-  background: var(--soft-blush);
-}
-
-.homepage-card {
+.hero-image {
+  width: 100%;
+  height: auto;
   position: relative;
-  text-align: center;
-  padding: 5rem 2rem;
-  background: var(--warm-champagne);
-  border-radius: 12px;
 }
 
-.homepage-decoration-left {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  opacity: 1;
-  z-index: 0;
-}
-
-.homepage-decoration-right {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  opacity: 1;
-  z-index: 0;
+.hero-landing-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .about-preview {
@@ -226,8 +182,6 @@
   }
   
   /* Hide decorations on mobile for cleaner look */
-  .homepage-decoration-left,
-  .homepage-decoration-right,
   .story-decoration-top,
   .rsvp-decoration-tree {
     display: none;

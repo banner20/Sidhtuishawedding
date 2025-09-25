@@ -3,39 +3,13 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="container">
-          <p className="subtitle animate-hero animate-fade-in-down">TOGETHER WITH THEIR FAMILIES THE OBEROI'S & TRISHA'S INVITE YOU TO CELEBRATE</p>
-          <h1 className="hero-title animate-hero animate-fade-in-up">Sidh & Tuisha</h1>
-          <div className="wedding-details animate-hero animate-fade-in-up">
-            <p className="wedding-date">February 18-19, 2025</p>
-            <p className="wedding-location">Tijara Fort Palace • Rajasthan, India</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Homepage Card Section */}
-      <section className="homepage-card-section">
-        <div className="container">
-          <div className="homepage-card">
-            <div className="homepage-decoration-left">
-              <img 
-                src="/images/decorationleaf.png" 
-                alt="Decorative leaf" 
-                style={{height: '90px', width: '90px', objectFit: 'contain'}} 
-              />
-            </div>
-            <h2 className="section-title">HOMEPAGE CARD TBD</h2>
-            <div className="homepage-decoration-right">
-              <img 
-                src="/images/decorationtulip.png" 
-                alt="Decorative tulip" 
-                style={{height: '95px', width: '95px', objectFit: 'contain'}} 
-              />
-            </div>
-          </div>
-        </div>
+      {/* Hero Image Section */}
+      <section className="hero-image">
+        <img 
+          src="/images/homepagelanding.jpg" 
+          alt="Sidh & Tuisha Wedding" 
+          className="hero-landing-image"
+        />
       </section>
 
       {/* Our Story Section - Preview with image */}
