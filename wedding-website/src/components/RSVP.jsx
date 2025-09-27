@@ -34,6 +34,7 @@ const RSVP = () => {
         method: 'POST',
         mode: 'no-cors',
         body: formData
+      });
       
       // With no-cors mode, we assume success if no error occurs
       // Google Apps Script will process the data even if we can't read the response
@@ -50,7 +51,7 @@ const RSVP = () => {
       // Redirect to homepage after 3 seconds
       setTimeout(() => {
         navigate("/");
-      }, 3000);      });
+      });      
 
     } catch (error) {
       console.error('Network error details:', error);
