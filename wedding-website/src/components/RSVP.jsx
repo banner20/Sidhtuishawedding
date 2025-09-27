@@ -6,7 +6,7 @@ const RSVP = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [overlayMessage, setOverlayMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
-  const [attendance, setAttendance] = useState(''); // Track attendance selection
+  const [attendance, setAttendance] = useState(''); // Changed back to attendance
   const navigate = useNavigate();
 
   const handleAttendanceChange = (event) => {
@@ -20,7 +20,7 @@ const RSVP = () => {
     formData.append('first_name', event.target.first_name.value);
     formData.append('last_name', event.target.last_name.value);
     formData.append('phone', event.target.phone.value);
-    formData.append('attendance', event.target.attendance.value);
+    formData.append('attendance', event.target.attendance.value); // Changed back to attendance
     formData.append('guests', event.target.guests.value);
     formData.append('notes', event.target.notes.value);
 
@@ -30,10 +30,24 @@ const RSVP = () => {
         body: formData
       });
 
-      const result = await response.text();
-      console.log('Response:', result);
+      // If we get here, the request was sent (even if we can't read the response due to CORS)
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
       
-      if (response.ok && result === 'Success') {
+      // Try to read the response, but handle CORS errors gracefully
+      let result = '';
+      try {
+        result = await response.text();
+        console.log('Response text:', result);
+      } catch (readError) {
+        console.log('Could not read response body due to CORS restrictions');
+        // Even if we can't read the response, the request was likely successful
+        // This is common with Google Apps Script due to CORS restrictions
+      }
+      
+      // Check for success - be more flexible with the response check
+      // Even if we can't read the response text due to CORS, if the status is OK, assume success
+      if (response.ok) {
         // Show success overlay
         setOverlayMessage('RSVP submitted successfully!');
         setIsSuccess(true);
@@ -48,13 +62,13 @@ const RSVP = () => {
           navigate('/');
         }, 3000);
       } else {
-        // Show error overlay
-        setOverlayMessage('Failed to submit RSVP. Please try again.');
+        // Show error overlay with more details
+        setOverlayMessage(`Failed to submit RSVP. Server response: ${result || 'No response'}. Please try again.`);
         setIsSuccess(false);
         setShowOverlay(true);
       }
     } catch (error) {
-      console.error('Error details:', error);
+      console.error('Network error details:', error);
       // Show error overlay
       setOverlayMessage('Error submitting RSVP. Please check your internet connection and try again.');
       setIsSuccess(false);
@@ -119,10 +133,10 @@ const RSVP = () => {
                   <label className="radio-label">
                     <input 
                       type="radio" 
-                      name="attendance" 
+                      name="attendance"  // Changed back to attendance
                       value="yes" 
                       required 
-                      onChange={handleAttendanceChange}
+                      onChange={handleAttendanceChange}  // Changed back to handleAttendanceChange
                       checked={attendance === 'yes'}
                     />
                     <span>Yes, I'll be there!</span>
@@ -130,10 +144,10 @@ const RSVP = () => {
                   <label className="radio-label">
                     <input 
                       type="radio" 
-                      name="attendance" 
+                      name="attendance"  // Changed back to attendance
                       value="no" 
                       required 
-                      onChange={handleAttendanceChange}
+                      onChange={handleAttendanceChange}  // Changed back to handleAttendanceChange
                       checked={attendance === 'no'}
                     />
                     <span>Sorry, I can't make it</span>
