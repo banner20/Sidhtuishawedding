@@ -36,25 +36,9 @@ const RSVP = () => {
         body: formData
       });
 
-      console.log('Response status:', response.status);
-      console.log('Response ok:', response.ok);
       
       // For Google Apps Script, we can't read the response due to CORS
       // But if the request was sent successfully (status 200), we assume success
-      if (response.ok) {
-        // Show success overlay
-        setOverlayMessage('RSVP submitted successfully!');
-        setIsSuccess(true);
-        setShowOverlay(true);
-        
-        // Reset form
-        event.target.reset();
-        setAttendance('');
-        
-        // Redirect to homepage after 3 seconds
-        setTimeout(() => {
-          navigate('/');
-        }, 3000);
       } else {
         // Show error overlay
         setOverlayMessage(`Failed to submit RSVP. Server returned status: ${response.status}. Please try again.`);
