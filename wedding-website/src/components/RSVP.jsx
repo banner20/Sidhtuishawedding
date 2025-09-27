@@ -33,7 +33,12 @@ const RSVP = () => {
       console.log("Checked attendance radio:", checkedAttendance.value);
       // Override the formData with the checked value
       formData.set("attendance", checkedAttendance.value);
-    } else {
+      
+      // Test: Force attendance value to see if it reaches Apps Script
+      console.log("=== FORCING ATTENDANCE VALUE TEST ===");
+      formData.set("attendance", "TEST_ATTENDANCE_VALUE");
+      console.log("Forced attendance to: TEST_ATTENDANCE_VALUE");
+      console.log("=== END FORCE TEST ===");    } else {
       console.log("No attendance radio button is checked!");
     }    const attendanceInputs = event.target.querySelectorAll("input[name=attendance]");
     attendanceInputs.forEach((input, index) => {
