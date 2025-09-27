@@ -34,17 +34,24 @@ const RSVP = () => {
         method: 'POST',
         mode: 'no-cors',
         body: formData
-      });
-
       
-      // For Google Apps Script, we can't read the response due to CORS
-      // But if the request was sent successfully (status 200), we assume success
-      } else {
-        // Show error overlay
-        setOverlayMessage(`Failed to submit RSVP. Server returned status: ${response.status}. Please try again.`);
-        setIsSuccess(false);
-        setShowOverlay(true);
-      }
+      // With no-cors mode, we assume success if no error occurs
+      // Google Apps Script will process the data even if we can't read the response
+      
+      // Show success message
+      setOverlayMessage("RSVP submitted successfully!");
+      setIsSuccess(true);
+      setShowOverlay(true);
+      
+      // Reset form
+      event.target.reset();
+      setAttendance("");
+      
+      // Redirect to homepage after 3 seconds
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);      });
+
     } catch (error) {
       console.error('Network error details:', error);
       // Show error overlay
