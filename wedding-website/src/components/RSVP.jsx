@@ -33,7 +33,7 @@ const RSVP = () => {
       const result = await response.text();
       console.log('Response:', result);
       
-      if (response.ok) {
+      if (response.ok && result === 'Success') {
         // Show success overlay
         setOverlayMessage('RSVP submitted successfully!');
         setIsSuccess(true);
