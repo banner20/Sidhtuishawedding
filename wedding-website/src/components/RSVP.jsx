@@ -1,6 +1,18 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RSVP.css';
 
 const RSVP = () => {
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [overlayMessage, setOverlayMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [attendance, setAttendance] = useState(''); // Track attendance selection
+  const navigate = useNavigate();
+
+  const handleAttendanceChange = (event) => {
+    setAttendance(event.target.value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -22,28 +34,41 @@ const RSVP = () => {
       console.log('Response:', result);
       
       if (response.ok) {
-        alert('RSVP submitted successfully!');
+        // Show success overlay
+        setOverlayMessage('RSVP submitted successfully!');
+        setIsSuccess(true);
+        setShowOverlay(true);
+        
+        // Reset form
         event.target.reset();
+        setAttendance(''); // Reset attendance state
+        
+        // Redirect to homepage after 3 seconds
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
       } else {
-        alert('Failed to submit RSVP. Please try again.');
+        // Show error overlay
+        setOverlayMessage('Failed to submit RSVP. Please try again.');
+        setIsSuccess(false);
+        setShowOverlay(true);
       }
     } catch (error) {
       console.error('Error details:', error);
-      // Try the alternative method with no-cors
-      try {
-        await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          body: formData
-        });
-        alert('RSVP submitted successfully!');
-        event.target.reset();
-      } catch (secondError) {
-        console.error('Second attempt failed:', secondError);
-        alert('Error submitting RSVP. Please check your internet connection and try again.');
-      }
+      // Show error overlay
+      setOverlayMessage('Error submitting RSVP. Please check your internet connection and try again.');
+      setIsSuccess(false);
+      setShowOverlay(true);
     }
   };
+
+  const closeOverlay = () => {
+    setShowOverlay(false);
+    if (isSuccess) {
+      navigate('/');
+    }
+  };
+
   return (
     <div className="rsvp-page">
       <div className="container">
@@ -67,7 +92,7 @@ const RSVP = () => {
               style={{height: '90px', width: '90px', objectFit: 'contain'}} 
             />
           </div>
-          <form className="rsvp-form-full" action="https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec" method="POST" target="_blank" onSubmit={handleSubmit}>
+          <form className="rsvp-form-full" onSubmit={handleSubmit}>
             <div className="form-section">
               <h3>Personal Information</h3>
               <div className="form-row">
@@ -92,26 +117,58 @@ const RSVP = () => {
                 <label>Will you be attending? *</label>
                 <div className="radio-group">
                   <label className="radio-label">
-                    <input type="radio" name="attendance" value="yes" required />
+                    <input 
+                      type="radio" 
+                      name="attendance" 
+                      value="yes" 
+                      required 
+                      onChange={handleAttendanceChange}
+                      checked={attendance === 'yes'}
+                    />
                     <span>Yes, I'll be there!</span>
                   </label>
                   <label className="radio-label">
-                    <input type="radio" name="attendance" value="no" required />
+                    <input 
+                      type="radio" 
+                      name="attendance" 
+                      value="no" 
+                      required 
+                      onChange={handleAttendanceChange}
+                      checked={attendance === 'no'}
+                    />
                     <span>Sorry, I can't make it</span>
                   </label>
                 </div>
               </div>
+              
+              {/* Number of Guests field - disabled when attendance is 'no' */}
               <div className="form-group">
                 <label>Number of Guests</label>
-                <input type="text" name="guests" placeholder="Enter number of guests" />
+                <input 
+                  type="text" 
+                  name="guests" 
+                  placeholder="Enter number of guests" 
+                  disabled={attendance === 'no'}
+                />
+                {attendance === 'no' && (
+                  <small className="field-disabled-message">This field is disabled because you've indicated you can't attend.</small>
+                )}
               </div>
-
             </div>
 
-            <div className="form-section">
+            {/* Special Dietary Requirements or Notes section - disabled when attendance is 'no' */}
+            <div className={`form-section ${attendance === 'no' ? 'disabled-section' : ''}`}>
               <div className="form-group">
                 <label>Special Dietary Requirements or Notes</label>
-                <textarea name="notes" rows="4" placeholder="Please let us know about any dietary restrictions, accessibility needs, or special requests..."></textarea>
+                <textarea 
+                  name="notes" 
+                  rows="4" 
+                  placeholder="Please let us know about any dietary restrictions, accessibility needs, or special requests..."
+                  disabled={attendance === 'no'}
+                ></textarea>
+                {attendance === 'no' && (
+                  <small className="field-disabled-message">This section is disabled because you've indicated you can't attend.</small>
+                )}
               </div>
             </div>
 
@@ -126,6 +183,22 @@ const RSVP = () => {
           </div>
         </div>
       </div>
+
+      {/* Overlay for submission feedback */}
+      {showOverlay && (
+        <div className="overlay">
+          <div className="overlay-content">
+            <div className={`overlay-message ${isSuccess ? 'success' : 'error'}`}>
+              {overlayMessage}
+            </div>
+            {isSuccess ? (
+              <p>Redirecting to homepage...</p>
+            ) : (
+              <button className="btn btn-large" onClick={closeOverlay}>Close</button>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
