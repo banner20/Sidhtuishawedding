@@ -120,10 +120,10 @@ const RSVP = () => {
                     <input 
                       type="radio" 
                       name="attendance"  // Changed back to attendance
-                      value="yes" 
+                      value="Yes" 
                       required 
                       onChange={handleAttendanceChange}  // Changed back to handleAttendanceChange
-                      checked={attendance === 'yes'}
+                      checked={attendance === 'Yes'}
                     />
                     <span>Yes, I'll be there!</span>
                   </label>
@@ -131,10 +131,10 @@ const RSVP = () => {
                     <input 
                       type="radio" 
                       name="attendance"  // Changed back to attendance
-                      value="no" 
+                      value="No" 
                       required 
                       onChange={handleAttendanceChange}  // Changed back to handleAttendanceChange
-                      checked={attendance === 'no'}
+                      checked={attendance === 'No'}
                     />
                     <span>Sorry, I can't make it</span>
                   </label>
@@ -148,25 +148,25 @@ const RSVP = () => {
                   type="text" 
                   name="guests" 
                   placeholder="Enter number of guests" 
-                  disabled={attendance === 'no'}
+                  disabled={attendance === 'No'}
                 />
-                {attendance === 'no' && (
+                {attendance === 'No' && (
                   <small className="field-disabled-message">This field is disabled because you've indicated you can't attend.</small>
                 )}
               </div>
             </div>
 
             {/* Special Dietary Requirements or Notes section - disabled when attendance is 'no' */}
-            <div className={`form-section ${attendance === 'no' ? 'disabled-section' : ''}`}>
+            <div className={`form-section ${attendance === 'No' ? 'disabled-section' : ''}`}>
               <div className="form-group">
                 <label>Special Dietary Requirements or Notes</label>
                 <textarea 
                   name="notes" 
                   rows="4" 
                   placeholder="Please let us know about any dietary restrictions, accessibility needs, or special requests..."
-                  disabled={attendance === 'no'}
+                  disabled={attendance === 'No'}
                 ></textarea>
-                {attendance === 'no' && (
+                {attendance === 'No' && (
                   <small className="field-disabled-message">This section is disabled because you've indicated you can't attend.</small>
                 )}
               </div>
