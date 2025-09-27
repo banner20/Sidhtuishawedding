@@ -20,7 +20,7 @@ const RSVP = () => {
     formData.append('first_name', event.target.first_name.value);
     formData.append('last_name', event.target.last_name.value);
     formData.append('phone', event.target.phone.value);
-    formData.append('attendance', event.target.attendance.value); // Changed back to attendance
+    formData.append('attendance', event.target.attendance.value);
     formData.append('guests', event.target.guests.value);
     formData.append('notes', event.target.notes.value);
 
@@ -30,23 +30,11 @@ const RSVP = () => {
         body: formData
       });
 
-      // If we get here, the request was sent (even if we can't read the response due to CORS)
       console.log('Response status:', response.status);
       console.log('Response ok:', response.ok);
       
-      // Try to read the response, but handle CORS errors gracefully
-      let result = '';
-      try {
-        result = await response.text();
-        console.log('Response text:', result);
-      } catch (readError) {
-        console.log('Could not read response body due to CORS restrictions');
-        // Even if we can't read the response, the request was likely successful
-        // This is common with Google Apps Script due to CORS restrictions
-      }
-      
-      // Check for success - be more flexible with the response check
-      // Even if we can't read the response text due to CORS, if the status is OK, assume success
+      // For Google Apps Script, we can't read the response due to CORS
+      // But if the request was sent successfully (status 200), we assume success
       if (response.ok) {
         // Show success overlay
         setOverlayMessage('RSVP submitted successfully!');
@@ -55,15 +43,15 @@ const RSVP = () => {
         
         // Reset form
         event.target.reset();
-        setAttendance(''); // Reset attendance state
+        setAttendance('');
         
         // Redirect to homepage after 3 seconds
         setTimeout(() => {
           navigate('/');
         }, 3000);
       } else {
-        // Show error overlay with more details
-        setOverlayMessage(`Failed to submit RSVP. Server response: ${result || 'No response'}. Please try again.`);
+        // Show error overlay
+        setOverlayMessage(`Failed to submit RSVP. Server returned status: ${response.status}. Please try again.`);
         setIsSuccess(false);
         setShowOverlay(true);
       }
