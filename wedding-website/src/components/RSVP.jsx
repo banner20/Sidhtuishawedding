@@ -52,8 +52,21 @@ const RSVP = () => {
 
     try {
       const response = await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
-        method: 'POST',
-        mode: 'no-cors',
+      
+      // Final FormData check before sending
+      console.log("=== FINAL FORMDATA BEFORE FETCH ===");
+      const finalFormData = new FormData();
+      for (let [key, value] of formData.entries()) {
+        finalFormData.append(key, value);
+        console.log(`Final ${key}: "${value}"`);
+      }
+      console.log("=== END FINAL FORMDATA ===");        method: 'POST',
+        console.log("Fetch request details:", {
+          url: "https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec",
+          method: "POST",
+          mode: "no-cors",
+          bodyType: "FormData"
+        });        mode: 'no-cors',
         body: formData
       });
       
@@ -194,7 +207,15 @@ const RSVP = () => {
             </div>
 
             <button type="submit" className="btn btn-large">SUBMIT RSVP</button>
-          </form>
+            <button type="button" onClick={() => {
+              console.log("=== TEST ATTENDANCE CAPTURE ===");
+              const form = document.querySelector(".rsvp-form-full");
+              const attendanceValue = form.attendance.value;
+              const checkedRadio = form.querySelector("input[name=attendance]:checked");
+              console.log("Form attendance value:", attendanceValue);
+              console.log("Checked radio value:", checkedRadio ? checkedRadio.value : "None");
+              console.log("=== END TEST ===");
+            }} className="btn btn-large" style={{marginLeft: "10px", backgroundColor: "#ff6b6b"}}>TEST ATTENDANCE</button>          </form>
           <div className="rsvp-form-decoration-right">
             <img 
               src="/images/decorationleaf.png" 
