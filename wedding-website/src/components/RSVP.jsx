@@ -21,7 +21,28 @@ const RSVP = () => {
     formData.append('last_name', event.target.last_name.value);
     formData.append('phone', event.target.phone.value);
     formData.append('attendance', event.target.attendance.value);
-    formData.append('guests', event.target.guests.value);
+    
+    // Debug: Log attendance value specifically
+    console.log("Attendance value from form:", event.target.attendance.value);
+    console.log("Attendance state:", attendance);
+    console.log("All form elements with name attendance:");
+    
+    // Fallback: Try to get attendance value from checked radio button
+    const checkedAttendance = event.target.querySelector("input[name=attendance]:checked");
+    if (checkedAttendance) {
+      console.log("Checked attendance radio:", checkedAttendance.value);
+      // Override the formData with the checked value
+      formData.set("attendance", checkedAttendance.value);
+    } else {
+      console.log("No attendance radio button is checked!");
+    }    const attendanceInputs = event.target.querySelectorAll("input[name=attendance]");
+    attendanceInputs.forEach((input, index) => {
+      console.log(`Attendance input ${index}:`, {
+        value: input.value,
+        checked: input.checked,
+        name: input.name
+      });
+    });    formData.append('guests', event.target.guests.value);
     formData.append('notes', event.target.notes.value);
 
     // Show loading state
