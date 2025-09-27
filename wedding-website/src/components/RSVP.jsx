@@ -8,6 +8,7 @@ const RSVP = () => {
     formData.append('first_name', event.target.first_name.value);
     formData.append('last_name', event.target.last_name.value);
     formData.append('phone', event.target.phone.value);
+    formData.append('attendance', event.target.attendance.value);
     formData.append('guests', event.target.guests.value);
     formData.append('notes', event.target.notes.value);
 
@@ -87,6 +88,19 @@ const RSVP = () => {
 
             <div className="form-section">
               <h3>Event Details</h3>
+              <div className="form-group">
+                <label>Will you be attending? *</label>
+                <div className="radio-group">
+                  <label className="radio-label">
+                    <input type="radio" name="attendance" value="yes" required />
+                    <span>Yes, I'll be there!</span>
+                  </label>
+                  <label className="radio-label">
+                    <input type="radio" name="attendance" value="no" required />
+                    <span>Sorry, I can't make it</span>
+                  </label>
+                </div>
+              </div>
               <div className="form-group">
                 <label>Number of Guests</label>
                 <input type="text" name="guests" placeholder="Enter number of guests" />

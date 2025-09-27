@@ -12,6 +12,27 @@ const Home = () => {
         />
       </section>
 
+      {/* RSVP Section */}
+      <section className="rsvp-preview">
+        <div className="container">
+          <div className="rsvp-decoration-tree">
+            <img 
+              src="/images/decorationbigtree.png" 
+              alt="Decorative tree" 
+              style={{height: '140px', width: '140px', objectFit: 'contain'}} 
+            />
+          </div>
+          <h2 className="section-title">RSVP</h2>
+          <div className="rsvp-content">
+            <p className="rsvp-description">
+              We can't wait to celebrate with you! Please let us know if you'll be joining us 
+              for our special day. Your presence would mean the world to us.
+            </p>
+            <a href="/rsvp" className="btn animate-button">RSVP NOW</a>
+          </div>
+        </div>
+      </section>
+
       {/* Our Story Section - Preview with image */}
       <section className="about-preview">
         <div className="container">
@@ -79,27 +100,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* RSVP Section */}
-      <section className="rsvp-preview">
-        <div className="container">
-          <div className="rsvp-decoration-tree">
-            <img 
-              src="/images/decorationbigtree.png" 
-              alt="Decorative tree" 
-              style={{height: '140px', width: '140px', objectFit: 'contain'}} 
-            />
-          </div>
-          <h2 className="section-title">RSVP</h2>
-          <div className="rsvp-content">
-            <p className="rsvp-description">
-              We can't wait to celebrate with you! Please let us know if you'll be joining us 
-              for our special day. Your presence would mean the world to us.
-            </p>
-            <a href="/rsvp" className="btn animate-button">RSVP NOW</a>
           </div>
         </div>
       </section>
