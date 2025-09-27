@@ -6,7 +6,7 @@ const RSVP = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [overlayMessage, setOverlayMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
-  const [attendance, setAttendance] = useState(''); // Changed back to attendance
+  const [attendance, setAttendance] = useState('');
   const navigate = useNavigate();
 
   const handleAttendanceChange = (event) => {
@@ -16,39 +16,21 @@ const RSVP = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append('first_name', event.target.first_name.value);
-    formData.append('last_name', event.target.last_name.value);
-    formData.append('phone', event.target.phone.value);
-    formData.append('attendance', event.target.attendance.value);
-    
-    // Debug: Log attendance value specifically
-    console.log("Attendance value from form:", event.target.attendance.value);
-    console.log("Attendance state:", attendance);
-    console.log("All form elements with name attendance:");
-    
-    // Fallback: Try to get attendance value from checked radio button
-    const checkedAttendance = event.target.querySelector("input[name=attendance]:checked");
-    if (checkedAttendance) {
-      console.log("Checked attendance radio:", checkedAttendance.value);
-      // Override the formData with the checked value
-      formData.set("attendance", checkedAttendance.value);
-      
-      // Test: Force attendance value to see if it reaches Apps Script
-      console.log("=== FORCING ATTENDANCE VALUE TEST ===");
-      formData.set("attendance", "TEST_ATTENDANCE_VALUE");
-      console.log("Forced attendance to: TEST_ATTENDANCE_VALUE");
-      console.log("=== END FORCE TEST ===");    } else {
-      console.log("No attendance radio button is checked!");
-    }    const attendanceInputs = event.target.querySelectorAll("input[name=attendance]");
-    attendanceInputs.forEach((input, index) => {
-      console.log(`Attendance input ${index}:`, {
-        value: input.value,
-        checked: input.checked,
-        name: input.name
-      });
-    });    formData.append('guests', event.target.guests.value);
-    formData.append('notes', event.target.notes.value);
+    // Get form data
+    const formData = {
+      first_name: event.target.first_name.value,
+      last_name: event.target.last_name.value,
+      phone: event.target.phone.value,
+      attendance: event.target.attendance.value,
+      guests: event.target.guests.value,
+      notes: event.target.notes.value
+    };
+
+    // Debug logging
+    console.log('=== RSVP FORM SUBMISSION ===');
+    console.log('Form data:', formData);
+    console.log('Attendance value:', formData.attendance);
+    console.log('=== END DEBUG ===');
 
     // Show loading state
     setOverlayMessage('Submitting RSVP...');
@@ -56,38 +38,46 @@ const RSVP = () => {
     setShowOverlay(true);
 
     try {
+      // Create FormData for submission
+      const submitData = new FormData();
+      submitData.append('first_name', formData.first_name);
+      submitData.append('last_name', formData.last_name);
+      submitData.append('phone', formData.phone);
+      submitData.append('attendance', formData.attendance);
+      submitData.append('guests', formData.guests);
+      submitData.append('notes', formData.notes);
+
+      // Log what we're sending
+      console.log('=== SENDING TO GOOGLE APPS SCRIPT ===');
+      for (let [key, value] of submitData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+      console.log('=== END SENDING ===');
+
+      // Submit to Google Apps Script
       const response = await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
         method: 'POST',
         mode: 'no-cors',
-        body: formData
-      
-      // Final FormData check before sending
-      console.log("=== FINAL FORMDATA BEFORE FETCH ===");
-      for (let [key, value] of formData.entries()) {
-        console.log(`Final ${key}: "${value}"`);
-      }
-      
-      // With no-cors mode, we assume success if no error occurs
-      // Google Apps Script will process the data even if we can't read the response
-      
+        body: submitData
+      });
+
       // Show success message
-      setOverlayMessage("RSVP submitted successfully!");
+      setOverlayMessage('RSVP submitted successfully!');
       setIsSuccess(true);
       setShowOverlay(true);
       
       // Reset form
       event.target.reset();
-      setAttendance("");
+      setAttendance('');
       
       // Redirect to homepage after 3 seconds
       setTimeout(() => {
-        navigate("/");
-      });      
-
+        navigate('/');
+      }, 3000);
+      
     } catch (error) {
-      console.error('Network error details:', error);
-      // Show error overlay
-      setOverlayMessage('Error submitting RSVP. Please check your internet connection and try again.');
+      console.error('RSVP submission error:', error);
+      setOverlayMessage('Error submitting RSVP. Please try again.');
       setIsSuccess(false);
       setShowOverlay(true);
     }
@@ -123,6 +113,7 @@ const RSVP = () => {
               style={{height: '90px', width: '90px', objectFit: 'contain'}} 
             />
           </div>
+          
           <form className="rsvp-form-full" onSubmit={handleSubmit}>
             <div className="form-section">
               <h3>Personal Information</h3>
@@ -150,10 +141,10 @@ const RSVP = () => {
                   <label className="radio-label">
                     <input 
                       type="radio" 
-                      name="attendance"  // Changed back to attendance
+                      name="attendance" 
                       value="Yes" 
                       required 
-                      onChange={handleAttendanceChange}  // Changed back to handleAttendanceChange
+                      onChange={handleAttendanceChange}
                       checked={attendance === 'Yes'}
                     />
                     <span>Yes, I'll be there!</span>
@@ -161,10 +152,10 @@ const RSVP = () => {
                   <label className="radio-label">
                     <input 
                       type="radio" 
-                      name="attendance"  // Changed back to attendance
+                      name="attendance" 
                       value="No" 
                       required 
-                      onChange={handleAttendanceChange}  // Changed back to handleAttendanceChange
+                      onChange={handleAttendanceChange}
                       checked={attendance === 'No'}
                     />
                     <span>Sorry, I can't make it</span>
@@ -172,7 +163,6 @@ const RSVP = () => {
                 </div>
               </div>
               
-              {/* Number of Guests field - disabled when attendance is 'no' */}
               <div className="form-group">
                 <label>Number of Guests</label>
                 <input 
@@ -187,7 +177,6 @@ const RSVP = () => {
               </div>
             </div>
 
-            {/* Special Dietary Requirements or Notes section - disabled when attendance is 'no' */}
             <div className={`form-section ${attendance === 'No' ? 'disabled-section' : ''}`}>
               <div className="form-group">
                 <label>Special Dietary Requirements or Notes</label>
@@ -204,15 +193,8 @@ const RSVP = () => {
             </div>
 
             <button type="submit" className="btn btn-large">SUBMIT RSVP</button>
-            <button type="button" onClick={() => {
-              console.log("=== TEST ATTENDANCE CAPTURE ===");
-              const form = document.querySelector(".rsvp-form-full");
-              const attendanceValue = form.attendance.value;
-              const checkedRadio = form.querySelector("input[name=attendance]:checked");
-              console.log("Form attendance value:", attendanceValue);
-              console.log("Checked radio value:", checkedRadio ? checkedRadio.value : "None");
-              console.log("=== END TEST ===");
-            }} className="btn btn-large" style={{marginLeft: "10px", backgroundColor: "#ff6b6b"}}>TEST ATTENDANCE</button>          </form>
+          </form>
+          
           <div className="rsvp-form-decoration-right">
             <img 
               src="/images/decorationleaf.png" 
