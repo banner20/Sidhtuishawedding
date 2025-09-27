@@ -24,9 +24,15 @@ const RSVP = () => {
     formData.append('guests', event.target.guests.value);
     formData.append('notes', event.target.notes.value);
 
+    // Show loading state
+    setOverlayMessage('Submitting RSVP...');
+    setIsSuccess(false);
+    setShowOverlay(true);
+
     try {
       const response = await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
         method: 'POST',
+        mode: 'no-cors',
         body: formData
       });
 
