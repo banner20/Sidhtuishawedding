@@ -55,7 +55,7 @@ const RSVP = () => {
       console.log('=== END SENDING ===');
 
       // Submit to Google Apps Script
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwT8gYbIRPw80Dv12z7bDI6VJ6Pc1b1qW2s1TwN7LGsxy4FOzKIU2shlfqoFV47rzHn/exec', {
         method: 'POST',
         mode: 'no-cors',
         body: submitData
