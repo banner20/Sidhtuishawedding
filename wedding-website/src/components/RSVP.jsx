@@ -57,23 +57,15 @@ const RSVP = () => {
 
     try {
       const response = await fetch('https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
       
       // Final FormData check before sending
       console.log("=== FINAL FORMDATA BEFORE FETCH ===");
-      const finalFormData = new FormData();
       for (let [key, value] of formData.entries()) {
-        finalFormData.append(key, value);
         console.log(`Final ${key}: "${value}"`);
       }
-      console.log("=== END FINAL FORMDATA ===");        method: 'POST',
-        console.log("Fetch request details:", {
-          url: "https://script.google.com/macros/s/AKfycbwcYQq916KkjBsacg7PwggRdsqarfHayiVyBiIc-YyLlN7ctZSxgXjJQTnTVRYjtf4o/exec",
-          method: "POST",
-          mode: "no-cors",
-          bodyType: "FormData"
-        });        mode: 'no-cors',
-        body: formData
-      });
       
       // With no-cors mode, we assume success if no error occurs
       // Google Apps Script will process the data even if we can't read the response
